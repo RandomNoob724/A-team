@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		11D29EC7237ED29300FCC890 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D29EC6237ED29300FCC890 /* MapViewController.swift */; };
 		11D29EC9237ED84500FCC890 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D29EC8237ED84500FCC890 /* Event.swift */; };
+		11D29ECB237EDBDD00FCC890 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D29ECA237EDBDD00FCC890 /* User.swift */; };
 		EB7F5097237DF0E000D71C72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F5096237DF0E000D71C72 /* AppDelegate.swift */; };
 		EB7F5099237DF0E000D71C72 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F5098237DF0E000D71C72 /* SceneDelegate.swift */; };
 		EB7F509B237DF0E000D71C72 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F509A237DF0E000D71C72 /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		11D29EC6237ED29300FCC890 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		11D29EC8237ED84500FCC890 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		11D29ECA237EDBDD00FCC890 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		EB7F5093237DF0E000D71C72 /* Mappy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mappy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB7F5096237DF0E000D71C72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB7F5098237DF0E000D71C72 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 				EB7F509A237DF0E000D71C72 /* ViewController.swift */,
 				EB7F509C237DF0E000D71C72 /* Main.storyboard */,
 				11D29EC8237ED84500FCC890 /* Event.swift */,
+				11D29ECA237EDBDD00FCC890 /* User.swift */,
 				11D29EC6237ED29300FCC890 /* MapViewController.swift */,
 				EB7F509F237DF0E100D71C72 /* Assets.xcassets */,
 				EB7F50A1237DF0E100D71C72 /* LaunchScreen.storyboard */,
@@ -146,6 +149,7 @@
 			files = (
 				EB7F509B237DF0E000D71C72 /* ViewController.swift in Sources */,
 				EB7F5097237DF0E000D71C72 /* AppDelegate.swift in Sources */,
+				11D29ECB237EDBDD00FCC890 /* User.swift in Sources */,
 				EB7F5099237DF0E000D71C72 /* SceneDelegate.swift in Sources */,
 				11D29EC7237ED29300FCC890 /* MapViewController.swift in Sources */,
 				11D29EC9237ED84500FCC890 /* Event.swift in Sources */,
