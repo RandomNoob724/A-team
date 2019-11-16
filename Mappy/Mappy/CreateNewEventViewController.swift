@@ -15,10 +15,14 @@ class CreateNewEventViewController: UIViewController {
     
     @IBOutlet weak var eventLocation: UITextField!
     
-    var eventPosition: CLLocationCoordinate2D!
+    var eventCoordinates: CLLocationCoordinate2D!
     
-    @IBAction func createNewEventButtonClicked(_ sender: Any) {
-        
+    @IBAction func createNewEventButtonClicked(_ sender: UIButton) {
+        guard let title = eventTitle.text else {return}
+        guard let location = eventLocation.text else {return}
+        let newEvent = Event(title: title, location: location, description: "osdjfoijs", coordinates: eventCoordinates)
+        EventHandler.instance.insertNewEvent(newEvent: newEvent)
+        self.dismiss(animated: true, completion: nil)
     }
     
 //    func createNewEventOnPosition(eventCoordinates: CLLocationCoordinate2D) -> Event {

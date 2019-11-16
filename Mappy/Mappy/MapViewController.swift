@@ -10,7 +10,6 @@ import UIKit
 import MapKit
 
 class MapViewController: UIViewController {
-    var allEvents: [Event] = []
     
     //When the user holds down the touch for a longer time they will be prompted to a modal view where they can create new events through a form
     @IBAction func longTouchHappened(_ sender: UILongPressGestureRecognizer) {
@@ -37,14 +36,10 @@ class MapViewController: UIViewController {
         //Sets initial location to Jönköping
         //TODO: In the future set the initial location to the users current location
         let initialLocation = CLLocation(latitude: 57.7826, longitude: 14.1618)
-        let mapEvent = Event(title: "This is an event", location: "Jönköping", description: "Local event", coordinates: CLLocationCoordinate2D(latitude: 57.7826, longitude: 14.1618))
-        let otherEvent = Event(title: "Mappy Launch", location: "Jönköping", description: "The launch of the Mappy app", coordinates: CLLocationCoordinate2D(latitude: 57.78, longitude: 14.16))
-        allEvents.append(mapEvent)
-        allEvents.append(otherEvent)
-        for event in allEvents {
-            mapView.addAnnotation(event)
-        }
         centerMapOnLocation(location: initialLocation)
+        for i in EventHandler.instance.allEvents {
+            mapView.addAnnotation(i)
+        }
     }
     
     //Method for calling the checkLocationAuthorizat ion method
@@ -88,7 +83,7 @@ class MapViewController: UIViewController {
             destinationViewController?.selectedEvent = sender as? Event
         } else if segue.identifier == "CreateNewEvent" {
             let destinationViewController = segue.destination as? CreateNewEventViewController
-            destinationViewController?.eventPosition = sender as? CLLocationCoordinate2D
+            destinationViewController?.eventCoordinates = sender as? CLLocationCoordinate2D
         }
     }
 }
