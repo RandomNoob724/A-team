@@ -49,6 +49,7 @@
                     <connections>
                         <outlet property="mapView" destination="gE4-8a-4GP" id="rvM-nC-I9C"/>
                         <segue destination="Fic-Oe-IJ3" kind="presentation" identifier="DetailedEvent" id="YDd-lA-tzd"/>
+                        <segue destination="cn1-bc-Tr9" kind="presentation" id="07j-2k-fKb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2pE-YT-vNG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -179,6 +180,68 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hn5-Td-Lpd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1387" y="-9"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="13K-Fb-Sz6">
+            <objects>
+                <viewController id="cn1-bc-Tr9" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4ZU-6u-y28">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kbn-sv-3CY">
+                                <rect key="frame" x="20" y="112" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create new event" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VZx-E3-fDg">
+                                <rect key="frame" x="20" y="20" width="374" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PiS-rT-feI">
+                                <rect key="frame" x="20" y="81" width="374" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NjS-ig-vnq">
+                                <rect key="frame" x="20" y="166" width="374" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ftf-IW-oid">
+                                <rect key="frame" x="20" y="197" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="PiS-rT-feI" firstAttribute="leading" secondItem="rEu-gr-IXa" secondAttribute="leading" constant="20" id="6Iq-YF-hc0"/>
+                            <constraint firstItem="NjS-ig-vnq" firstAttribute="leading" secondItem="rEu-gr-IXa" secondAttribute="leading" constant="20" id="8hm-6n-C3x"/>
+                            <constraint firstItem="NjS-ig-vnq" firstAttribute="top" secondItem="kbn-sv-3CY" secondAttribute="bottom" constant="20" id="Bma-Sb-c0C"/>
+                            <constraint firstItem="VZx-E3-fDg" firstAttribute="top" secondItem="rEu-gr-IXa" secondAttribute="top" constant="20" id="CKL-cP-JBI"/>
+                            <constraint firstItem="rEu-gr-IXa" firstAttribute="trailing" secondItem="Ftf-IW-oid" secondAttribute="trailing" constant="20" id="FIs-tP-SaP"/>
+                            <constraint firstItem="Ftf-IW-oid" firstAttribute="leading" secondItem="rEu-gr-IXa" secondAttribute="leading" constant="20" id="KFu-Kg-1fk"/>
+                            <constraint firstItem="PiS-rT-feI" firstAttribute="top" secondItem="VZx-E3-fDg" secondAttribute="bottom" constant="40" id="UJR-SZ-RHs"/>
+                            <constraint firstItem="Ftf-IW-oid" firstAttribute="top" secondItem="NjS-ig-vnq" secondAttribute="bottom" constant="10" id="UNf-xk-wvx"/>
+                            <constraint firstItem="rEu-gr-IXa" firstAttribute="trailing" secondItem="VZx-E3-fDg" secondAttribute="trailing" constant="20" id="VFb-0k-rtE"/>
+                            <constraint firstItem="VZx-E3-fDg" firstAttribute="leading" secondItem="rEu-gr-IXa" secondAttribute="leading" constant="20" id="ave-wb-wse"/>
+                            <constraint firstItem="rEu-gr-IXa" firstAttribute="trailing" secondItem="kbn-sv-3CY" secondAttribute="trailing" constant="20" id="b0d-oK-TcZ"/>
+                            <constraint firstItem="kbn-sv-3CY" firstAttribute="leading" secondItem="rEu-gr-IXa" secondAttribute="leading" constant="20" id="b2O-vW-v9P"/>
+                            <constraint firstItem="rEu-gr-IXa" firstAttribute="trailing" secondItem="NjS-ig-vnq" secondAttribute="trailing" constant="20" id="fTV-I5-JIU"/>
+                            <constraint firstItem="kbn-sv-3CY" firstAttribute="top" secondItem="PiS-rT-feI" secondAttribute="bottom" constant="10" id="mo3-rZ-xHw"/>
+                            <constraint firstItem="rEu-gr-IXa" firstAttribute="trailing" secondItem="PiS-rT-feI" secondAttribute="trailing" constant="20" id="usS-uw-tUp"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="rEu-gr-IXa"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VGU-Go-FGF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1388.4057971014495" y="-1475.2232142857142"/>
         </scene>
     </scenes>
     <resources>
