@@ -15,6 +15,8 @@ class DetailedEventViewController: UIViewController {
     @IBOutlet weak var detailedViewImage: UIImageView!
     @IBOutlet weak var detailedViewDescription: UILabel!
     
+    var selectedEvent: Event?
+    
     @IBAction func getThereClicked(_ sender: Any) {
         //When clicked you want to segue over to the detailed Event view such that we can display the detailed information abou the event
         let location = selectedEvent
@@ -22,7 +24,9 @@ class DetailedEventViewController: UIViewController {
         location?.mapItem().openInMaps(launchOptions: launchOptions)
     }
     
-    var selectedEvent: Event?
+    @IBAction func closeButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

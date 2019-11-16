@@ -16,7 +16,7 @@ class Event: NSObject, MKAnnotation{
     let location: String
     let eventDescription: String
     
-    init(title: String, location: String, description: String, coordinates: CLLocationCoordinate2D) {
+    init(title: String = "PlaceHolder", location: String = "Point Null", description: String = "This is an event to celebrate the null point", coordinates: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 0, longitude: 0)) {
         self.title = title
         self.location = location
         self.eventDescription = description

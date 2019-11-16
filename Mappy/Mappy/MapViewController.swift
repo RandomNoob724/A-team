@@ -9,10 +9,9 @@
 import UIKit
 import MapKit
 
-var allEvents: [Event] = []
-
 class MapViewController: UIViewController {
     
+    var allEvents: [Event] = []
     
     @IBAction func centerOnUserLocation(_ sender: Any) {
         let userPosition = mapView.userLocation.coordinate
@@ -30,10 +29,13 @@ class MapViewController: UIViewController {
         //Sets initial location to Jönköping
         //TODO: In the future set the initial location to the users current location
         let initialLocation = CLLocation(latitude: 57.7826, longitude: 14.1618)
-        let mapEvent = Event(title: "This is an event", location: "Jönköping", description: "Local event", coordinates: CLLocationCoordinate2D(latitude: 57.7826, longitude: 14.1618))
-        let otherEvent = Event(title: "Mappy Launch", location: "Jönköping", description: "The launch of the Mappy app", coordinates: CLLocationCoordinate2D(latitude: 57.78, longitude: 14.16))
-        mapView.addAnnotation(otherEvent)
-        mapView.addAnnotation(mapEvent)
+//        let mapEvent = Event(title: "This is an event", location: "Jönköping", description: "Local event", coordinates: CLLocationCoordinate2D(latitude: 57.7826, longitude: 14.1618))
+//        let otherEvent = Event(title: "Mappy Launch", location: "Jönköping", description: "The launch of the Mappy app", coordinates: CLLocationCoordinate2D(latitude: 57.78, longitude: 14.16))
+//        allEvents.append(mapEvent)
+//        allEvents.append(otherEvent)
+        for event in allEvents {
+            addEventPinToMap(eventToAdd: event)
+        }
         centerMapOnLocation(location: initialLocation)
     }
     
@@ -70,6 +72,16 @@ class MapViewController: UIViewController {
         let regionRadius: CLLocationDistance = 1000
         let coordinateRegion = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
         mapView.setRegion(coordinateRegion, animated: true)
+    }
+    
+    //Takes an event objects and puts a pin with annotation on the map
+    func addEventPinToMap(eventToAdd: Event){
+        if eventToAdd.title != nil {
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = eventToAdd.coordinate
+            annotation.title = eventToAdd.title
+            mapView.addAnnotation(annotation)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
