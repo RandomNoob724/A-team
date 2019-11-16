@@ -12,6 +12,13 @@ import MapKit
 var allEvents: [Event] = []
 
 class MapViewController: UIViewController {
+    
+    
+    @IBAction func centerOnUserLocation(_ sender: Any) {
+        let userPosition = mapView.userLocation.coordinate
+        centerMapOnLocation(location: CLLocation(latitude: userPosition.latitude, longitude: userPosition.longitude))
+    }
+    
     @IBOutlet weak var mapView: MKMapView!
     
     let locationManager = CLLocationManager()
@@ -20,12 +27,17 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
         checkLocationServices()
         mapView.delegate = self
+        //Sets initial location to Jönköping
+        //TODO: In the future set the initial location to the users current location
         let initialLocation = CLLocation(latitude: 57.7826, longitude: 14.1618)
         let mapEvent = Event(title: "This is an event", location: "Jönköping", description: "Local event", coordinates: CLLocationCoordinate2D(latitude: 57.7826, longitude: 14.1618))
+        let otherEvent = Event(title: "Mappy Launch", location: "Jönköping", description: "The launch of the Mappy app", coordinates: CLLocationCoordinate2D(latitude: 57.78, longitude: 14.16))
+        mapView.addAnnotation(otherEvent)
         mapView.addAnnotation(mapEvent)
         centerMapOnLocation(location: initialLocation)
     }
     
+    //Method for calling the checkLocationAuthorization method
     func checkLocationServices(){
         if CLLocationManager.locationServicesEnabled(){
             checkLocationAuthorization()
@@ -34,6 +46,7 @@ class MapViewController: UIViewController {
         }
     }
     
+    //Check if the user have authenticated the application to use the current location
     func checkLocationAuthorization(){
         switch CLLocationManager.authorizationStatus() {
         case .authorizedWhenInUse:
@@ -52,14 +65,24 @@ class MapViewController: UIViewController {
         }
     }
     
+    //Called when you want to center the mapView on a speicfic location
     func centerMapOnLocation(location: CLLocation){
         let regionRadius: CLLocationDistance = 1000
         let coordinateRegion = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
         mapView.setRegion(coordinateRegion, animated: true)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "DetailedEvent" {
+            let destinationViewController = segue.destination as? DetailedEventViewController
+            destinationViewController?.selectedEvent = sender as? Event
+        }
+    }
 }
 
+//Creates a new map view delegate
 extension MapViewController: MKMapViewDelegate {
+    //Used to make custom mapView annotations
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView?{
         guard let annotation = annotation as? Event else {return nil}
         
@@ -78,9 +101,10 @@ extension MapViewController: MKMapViewDelegate {
         return view
     }
     
-    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl){
-        let location = view.annotation as! Event
-        let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
-        location.mapItem().openInMaps(launchOptions: launchOptions)
+    //When information is clicked on the annotation the user is taken to the apple maps app where you can find more specific information how to get to a specific point
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView,
+    calloutAccessoryControlTapped control: UIControl){
+        let selectedEvent = view.annotation as! Event
+        performSegue(withIdentifier: "DetailedEvent", sender: selectedEvent)
     }
 }

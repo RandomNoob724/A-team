@@ -18,29 +18,106 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gE4-8a-4GP">
                                 <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="Yf8-Ae-M5p" appends="YES" id="Q66-tX-RYU"/>
-                                </connections>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SRB-1n-5e6">
+                                <rect key="frame" x="354" y="753" width="40" height="40"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="2x4-kb-oUQ"/>
+                                    <constraint firstAttribute="width" secondItem="SRB-1n-5e6" secondAttribute="height" multiplier="1:1" id="zgX-69-PXn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" image="location.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="centerOnUserLocation:" destination="ao4-CH-xTe" eventType="touchUpInside" id="caB-WM-SeU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="gE4-8a-4GP" firstAttribute="leading" secondItem="tEj-w6-inV" secondAttribute="leading" id="22t-5j-NJ0"/>
                             <constraint firstItem="tEj-w6-inV" firstAttribute="trailing" secondItem="gE4-8a-4GP" secondAttribute="trailing" id="2vW-AA-Yj8"/>
                             <constraint firstItem="tEj-w6-inV" firstAttribute="bottom" secondItem="gE4-8a-4GP" secondAttribute="bottom" id="6CQ-QD-Jm8"/>
+                            <constraint firstItem="tEj-w6-inV" firstAttribute="bottom" secondItem="SRB-1n-5e6" secondAttribute="bottom" constant="20" id="6aC-qg-1vg"/>
                             <constraint firstItem="gE4-8a-4GP" firstAttribute="top" secondItem="tEj-w6-inV" secondAttribute="top" id="JCi-kM-asS"/>
+                            <constraint firstItem="tEj-w6-inV" firstAttribute="trailing" secondItem="SRB-1n-5e6" secondAttribute="trailing" constant="20" id="Kh8-1I-Wyf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tEj-w6-inV"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="map" catalog="system" id="0ih-Vv-7HZ"/>
                     <connections>
                         <outlet property="mapView" destination="gE4-8a-4GP" id="rvM-nC-I9C"/>
+                        <segue destination="Fic-Oe-IJ3" kind="presentation" identifier="DetailedEvent" id="YDd-lA-tzd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2pE-YT-vNG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="Yf8-Ae-M5p"/>
             </objects>
             <point key="canvasLocation" x="-1386" y="-712"/>
+        </scene>
+        <!--Detailed Event View Controller-->
+        <scene sceneID="IDy-7K-5et">
+            <objects>
+                <viewController id="Fic-Oe-IJ3" customClass="DetailedEventViewController" customModule="Mappy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iVf-2t-8Kq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Detailed event header" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bnd-OB-cCb">
+                                <rect key="frame" x="10" y="20" width="394" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ojx-7h-9YH">
+                                <rect key="frame" x="20" y="358" width="374" height="450"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="450" id="3gx-NB-N2T"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xdx-A8-N4G">
+                                <rect key="frame" x="20" y="72" width="374" height="187"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Xdx-A8-N4G" secondAttribute="height" multiplier="2:1" id="lmo-hv-bcs"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xzz-bR-hVb">
+                                <rect key="frame" x="10" y="269" width="394" height="79"/>
+                                <state key="normal" title="Get there"/>
+                                <connections>
+                                    <action selector="getThereClicked:" destination="Fic-Oe-IJ3" eventType="touchUpInside" id="7eX-Az-tsp"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Ojx-7h-9YH" firstAttribute="top" secondItem="Xzz-bR-hVb" secondAttribute="bottom" constant="10" id="4BP-cL-RU9"/>
+                            <constraint firstItem="Xzz-bR-hVb" firstAttribute="leading" secondItem="5Tj-Js-52m" secondAttribute="leading" constant="10" id="Bed-bB-1Xa"/>
+                            <constraint firstItem="Xdx-A8-N4G" firstAttribute="leading" secondItem="5Tj-Js-52m" secondAttribute="leading" constant="20" id="Ber-qf-5Py"/>
+                            <constraint firstItem="Bnd-OB-cCb" firstAttribute="leading" secondItem="5Tj-Js-52m" secondAttribute="leading" constant="10" id="CNm-mH-xPL"/>
+                            <constraint firstItem="5Tj-Js-52m" firstAttribute="trailing" secondItem="Xzz-bR-hVb" secondAttribute="trailing" constant="10" id="Dqq-bt-bfJ"/>
+                            <constraint firstItem="Xzz-bR-hVb" firstAttribute="top" secondItem="Xdx-A8-N4G" secondAttribute="bottom" constant="10" id="LuK-V6-EGN"/>
+                            <constraint firstItem="Bnd-OB-cCb" firstAttribute="top" secondItem="5Tj-Js-52m" secondAttribute="top" constant="20" id="MOL-sX-baI"/>
+                            <constraint firstItem="5Tj-Js-52m" firstAttribute="trailing" secondItem="Xdx-A8-N4G" secondAttribute="trailing" constant="20" id="QAN-A9-iqS"/>
+                            <constraint firstItem="5Tj-Js-52m" firstAttribute="trailing" secondItem="Bnd-OB-cCb" secondAttribute="trailing" constant="10" id="VpS-j7-Wz4"/>
+                            <constraint firstItem="Xdx-A8-N4G" firstAttribute="top" secondItem="Bnd-OB-cCb" secondAttribute="bottom" constant="10" id="dX2-BW-KBG"/>
+                            <constraint firstItem="5Tj-Js-52m" firstAttribute="trailing" secondItem="Ojx-7h-9YH" secondAttribute="trailing" constant="20" id="fci-eX-UpT"/>
+                            <constraint firstItem="Ojx-7h-9YH" firstAttribute="leading" secondItem="5Tj-Js-52m" secondAttribute="leading" constant="20" id="nPr-5G-9ew"/>
+                            <constraint firstItem="Ojx-7h-9YH" firstAttribute="bottom" secondItem="5Tj-Js-52m" secondAttribute="bottom" id="vfp-r6-rO4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="5Tj-Js-52m"/>
+                    </view>
+                    <connections>
+                        <outlet property="DetailedViewHeader" destination="Bnd-OB-cCb" id="XAc-0d-zxM"/>
+                        <outlet property="detailedViewDescription" destination="Ojx-7h-9YH" id="7eG-Zf-CEI"/>
+                        <outlet property="detailedViewImage" destination="Xdx-A8-N4G" id="lgq-lw-1ud"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l2s-mT-d0i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-207.24637681159422" y="-713.16964285714278"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="agI-D5-ygC">
@@ -92,6 +169,7 @@
     </scenes>
     <resources>
         <image name="book" catalog="system" width="64" height="50"/>
+        <image name="location.fill" catalog="system" width="64" height="56"/>
         <image name="map" catalog="system" width="64" height="56"/>
     </resources>
 </document>
