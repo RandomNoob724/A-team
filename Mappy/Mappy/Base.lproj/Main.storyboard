@@ -18,6 +18,9 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gE4-8a-4GP">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="YHv-gl-1Gd" appends="YES" id="1Tn-G8-CJd"/>
+                                </connections>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SRB-1n-5e6">
                                 <rect key="frame" x="354" y="753" width="40" height="40"/>
@@ -49,10 +52,15 @@
                     <connections>
                         <outlet property="mapView" destination="gE4-8a-4GP" id="rvM-nC-I9C"/>
                         <segue destination="Fic-Oe-IJ3" kind="presentation" identifier="DetailedEvent" id="YDd-lA-tzd"/>
-                        <segue destination="cn1-bc-Tr9" kind="presentation" id="07j-2k-fKb"/>
+                        <segue destination="cn1-bc-Tr9" kind="presentation" identifier="CreateNewEvent" id="07j-2k-fKb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2pE-YT-vNG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="YHv-gl-1Gd">
+                    <connections>
+                        <action selector="longTouchHappened:" destination="ao4-CH-xTe" id="pzv-UB-ai4"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1386" y="-712"/>
         </scene>
@@ -181,10 +189,10 @@
             </objects>
             <point key="canvasLocation" x="-1387" y="-9"/>
         </scene>
-        <!--View Controller-->
+        <!--Create New Event View Controller-->
         <scene sceneID="13K-Fb-Sz6">
             <objects>
-                <viewController id="cn1-bc-Tr9" sceneMemberID="viewController">
+                <viewController id="cn1-bc-Tr9" customClass="CreateNewEventViewController" customModule="Mappy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4ZU-6u-y28">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -217,6 +225,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QZN-oU-Blq">
+                                <rect key="frame" x="184" y="239" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="createNewEventButtonClicked:" destination="cn1-bc-Tr9" eventType="touchUpInside" id="RvQ-SC-dfM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -238,6 +254,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rEu-gr-IXa"/>
                     </view>
+                    <connections>
+                        <outlet property="eventLocation" destination="Ftf-IW-oid" id="37y-ez-rc0"/>
+                        <outlet property="eventTitle" destination="kbn-sv-3CY" id="w2T-HU-cks"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VGU-Go-FGF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

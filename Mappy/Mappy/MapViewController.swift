@@ -12,6 +12,15 @@ import MapKit
 class MapViewController: UIViewController {
     var allEvents: [Event] = []
     
+    //When the user holds down the touch for a longer time they will be prompted to a modal view where they can create new events through a form
+    @IBAction func longTouchHappened(_ sender: UILongPressGestureRecognizer) {
+        if sender.state == .began {
+            let position = sender.location(in: self.mapView)
+            let newCoordinate = self.mapView.convert(position, toCoordinateFrom: self.mapView)
+            performSegue(withIdentifier: "CreateNewEvent", sender: newCoordinate)
+        }
+    }
+    
     @IBAction func centerOnUserLocation(_ sender: Any) {
         let userPosition = mapView.userLocation.coordinate
         centerMapOnLocation(location: CLLocation(latitude: userPosition.latitude, longitude: userPosition.longitude))
@@ -77,6 +86,9 @@ class MapViewController: UIViewController {
         if segue.identifier == "DetailedEvent" {
             let destinationViewController = segue.destination as? DetailedEventViewController
             destinationViewController?.selectedEvent = sender as? Event
+        } else if segue.identifier == "CreateNewEvent" {
+            let destinationViewController = segue.destination as? CreateNewEventViewController
+            destinationViewController?.eventPosition = sender as? CLLocationCoordinate2D
         }
     }
 }
@@ -107,16 +119,5 @@ extension MapViewController: MKMapViewDelegate {
     calloutAccessoryControlTapped control: UIControl){
         let selectedEvent = view.annotation as! Event
         performSegue(withIdentifier: "DetailedEvent", sender: selectedEvent)
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let touch = touches.first {
-            let position = touch.location(in: self.mapView)
-            print(position)
-            let newCoordinate = self.mapView.convert(position, toCoordinateFrom: self.mapView)
-            let annotation = MKPointAnnotation()
-            annotation.coordinate = newCoordinate
-            mapView.addAnnotation(annotation)
-        }
     }
 }
