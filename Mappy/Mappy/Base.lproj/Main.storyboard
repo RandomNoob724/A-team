@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gE4-8a-4GP">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <gestureRecognizers/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SRB-1n-5e6">
@@ -34,12 +34,13 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="gE4-8a-4GP" firstAttribute="leading" secondItem="tEj-w6-inV" secondAttribute="leading" id="22t-5j-NJ0"/>
-                            <constraint firstItem="tEj-w6-inV" firstAttribute="trailing" secondItem="gE4-8a-4GP" secondAttribute="trailing" id="2vW-AA-Yj8"/>
-                            <constraint firstItem="tEj-w6-inV" firstAttribute="bottom" secondItem="gE4-8a-4GP" secondAttribute="bottom" id="6CQ-QD-Jm8"/>
+                            <constraint firstItem="gE4-8a-4GP" firstAttribute="leading" secondItem="Q8u-zf-vOx" secondAttribute="leading" id="22t-5j-NJ0"/>
+                            <constraint firstAttribute="trailing" secondItem="gE4-8a-4GP" secondAttribute="trailing" id="2vW-AA-Yj8"/>
+                            <constraint firstAttribute="bottom" secondItem="gE4-8a-4GP" secondAttribute="bottom" id="6CQ-QD-Jm8"/>
                             <constraint firstItem="tEj-w6-inV" firstAttribute="bottom" secondItem="SRB-1n-5e6" secondAttribute="bottom" constant="20" id="6aC-qg-1vg"/>
-                            <constraint firstItem="gE4-8a-4GP" firstAttribute="top" secondItem="tEj-w6-inV" secondAttribute="top" id="JCi-kM-asS"/>
+                            <constraint firstItem="gE4-8a-4GP" firstAttribute="top" secondItem="Q8u-zf-vOx" secondAttribute="top" id="JCi-kM-asS"/>
                             <constraint firstItem="tEj-w6-inV" firstAttribute="trailing" secondItem="SRB-1n-5e6" secondAttribute="trailing" constant="20" id="Kh8-1I-Wyf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tEj-w6-inV"/>

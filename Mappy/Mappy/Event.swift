@@ -28,6 +28,7 @@ class Event: NSObject, MKAnnotation{
         return self.location
     }
     
+    
     func mapItem() -> MKMapItem {
         let addressDict = [CNPostalAddressStreetKey: subtitle!]
         let placemark = MKPlacemark(coordinate: coordinate, addressDictionary: addressDict)

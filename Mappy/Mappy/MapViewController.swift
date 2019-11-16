@@ -10,7 +10,6 @@ import UIKit
 import MapKit
 
 class MapViewController: UIViewController {
-    
     var allEvents: [Event] = []
     
     @IBAction func centerOnUserLocation(_ sender: Any) {
@@ -29,17 +28,17 @@ class MapViewController: UIViewController {
         //Sets initial location to Jönköping
         //TODO: In the future set the initial location to the users current location
         let initialLocation = CLLocation(latitude: 57.7826, longitude: 14.1618)
-//        let mapEvent = Event(title: "This is an event", location: "Jönköping", description: "Local event", coordinates: CLLocationCoordinate2D(latitude: 57.7826, longitude: 14.1618))
-//        let otherEvent = Event(title: "Mappy Launch", location: "Jönköping", description: "The launch of the Mappy app", coordinates: CLLocationCoordinate2D(latitude: 57.78, longitude: 14.16))
-//        allEvents.append(mapEvent)
-//        allEvents.append(otherEvent)
+        let mapEvent = Event(title: "This is an event", location: "Jönköping", description: "Local event", coordinates: CLLocationCoordinate2D(latitude: 57.7826, longitude: 14.1618))
+        let otherEvent = Event(title: "Mappy Launch", location: "Jönköping", description: "The launch of the Mappy app", coordinates: CLLocationCoordinate2D(latitude: 57.78, longitude: 14.16))
+        allEvents.append(mapEvent)
+        allEvents.append(otherEvent)
         for event in allEvents {
-            addEventPinToMap(eventToAdd: event)
+            mapView.addAnnotation(event)
         }
         centerMapOnLocation(location: initialLocation)
     }
     
-    //Method for calling the checkLocationAuthorization method
+    //Method for calling the checkLocationAuthorizat ion method
     func checkLocationServices(){
         if CLLocationManager.locationServicesEnabled(){
             checkLocationAuthorization()
@@ -74,16 +73,6 @@ class MapViewController: UIViewController {
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
-    //Takes an event objects and puts a pin with annotation on the map
-    func addEventPinToMap(eventToAdd: Event){
-        if eventToAdd.title != nil {
-            let annotation = MKPointAnnotation()
-            annotation.coordinate = eventToAdd.coordinate
-            annotation.title = eventToAdd.title
-            mapView.addAnnotation(annotation)
-        }
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "DetailedEvent" {
             let destinationViewController = segue.destination as? DetailedEventViewController
@@ -92,7 +81,7 @@ class MapViewController: UIViewController {
     }
 }
 
-//Creates a new map view delegate
+//Creates new mapViewDelegate
 extension MapViewController: MKMapViewDelegate {
     //Used to make custom mapView annotations
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView?{
@@ -118,5 +107,16 @@ extension MapViewController: MKMapViewDelegate {
     calloutAccessoryControlTapped control: UIControl){
         let selectedEvent = view.annotation as! Event
         performSegue(withIdentifier: "DetailedEvent", sender: selectedEvent)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touch = touches.first {
+            let position = touch.location(in: self.mapView)
+            print(position)
+            let newCoordinate = self.mapView.convert(position, toCoordinateFrom: self.mapView)
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = newCoordinate
+            mapView.addAnnotation(annotation)
+        }
     }
 }
