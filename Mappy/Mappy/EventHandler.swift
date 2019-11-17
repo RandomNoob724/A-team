@@ -12,10 +12,7 @@ import MapKit
 class EventHandler {
     static let instance = EventHandler()
     
-    var allEvents: [Event] = [
-        Event(title: "This is an event", location: "Jönköping", description: "Local event", coordinates: CLLocationCoordinate2D(latitude: 57.7826, longitude: 14.1618)),
-        Event(title: "Mappy Launch", location: "Jönköping", description: "The launch of the Mappy app", coordinates: CLLocationCoordinate2D(latitude: 57.78, longitude: 14.16))
-    ]
+    var allEvents: [Event] = []
     
     func insertNewEvent(newEvent: Event){
         allEvents.append(newEvent)

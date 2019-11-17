@@ -18,7 +18,6 @@ class MapViewController: UIViewController {
             let newCoordinate = self.mapView.convert(position, toCoordinateFrom: self.mapView)
             performSegue(withIdentifier: "CreateNewEvent", sender: newCoordinate)
         }
-        EventHandler.instance.updateMap(mapView: mapView)
     }
     
     @IBAction func centerOnUserLocation(_ sender: Any) {
@@ -38,7 +37,15 @@ class MapViewController: UIViewController {
         //TODO: In the future set the initial location to the users current location
         let initialLocation = CLLocation(latitude: 57.7826, longitude: 14.1618)
         centerMapOnLocation(location: initialLocation)
+        //Fills the list with 100 random locations around the world
+        for i in 0..<100{
+            let location = CLLocationCoordinate2D(latitude: CLLocationDegrees(Float.random(in: 0..<90)), longitude: CLLocationDegrees(Float.random(in: 0..<180)))
+            EventHandler.instance.insertNewEvent(newEvent: Event(coordinates: location))
+            print(EventHandler.instance.allEvents[i].location)
+        }
         for i in EventHandler.instance.allEvents {
+            i.setLocation(coordinates: i.coordinate)
+            print(i.location)
             mapView.addAnnotation(i)
         }
     }

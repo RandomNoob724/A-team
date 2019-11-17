@@ -163,7 +163,7 @@
         <!--Root View Controller-->
         <scene sceneID="9V9-gh-cNK">
             <objects>
-                <tableViewController id="nre-o8-2si" sceneMemberID="viewController">
+                <tableViewController id="nre-o8-2si" customClass="EventTableViewController" customModule="Mappy" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ygh-q1-u1l">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
