@@ -20,4 +20,8 @@ class EventHandler {
     func insertNewEvent(newEvent: Event){
         allEvents.append(newEvent)
     }
+    
+    func updateMap(mapView: MKMapView){
+        mapView.addAnnotation(allEvents[allEvents.endIndex-1])
+    }
 }

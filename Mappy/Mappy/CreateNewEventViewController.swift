@@ -19,8 +19,8 @@ class CreateNewEventViewController: UIViewController {
     
     @IBAction func createNewEventButtonClicked(_ sender: UIButton) {
         guard let title = eventTitle.text else {return}
-        guard let location = eventLocation.text else {return}
-        let newEvent = Event(title: title, location: location, description: "osdjfoijs", coordinates: eventCoordinates)
+        let newEvent = Event(title: title, description: "osdjfoijs", coordinates: eventCoordinates)
+        newEvent.setLocation(coordinates: eventCoordinates)
         EventHandler.instance.insertNewEvent(newEvent: newEvent)
         self.dismiss(animated: true, completion: nil)
     }

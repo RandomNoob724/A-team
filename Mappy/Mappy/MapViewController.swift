@@ -18,6 +18,7 @@ class MapViewController: UIViewController {
             let newCoordinate = self.mapView.convert(position, toCoordinateFrom: self.mapView)
             performSegue(withIdentifier: "CreateNewEvent", sender: newCoordinate)
         }
+        EventHandler.instance.updateMap(mapView: mapView)
     }
     
     @IBAction func centerOnUserLocation(_ sender: Any) {
