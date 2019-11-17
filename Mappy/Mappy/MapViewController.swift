@@ -106,6 +106,7 @@ extension MapViewController: MKMapViewDelegate {
             view.canShowCallout = true
             view.calloutOffset = CGPoint(x: -5, y: 5)
             view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+            view.markerTintColor = UIColor.systemGreen
         }
         return view
     }
