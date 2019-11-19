@@ -8,9 +8,11 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 class MapViewController: UIViewController {
     
+    //MARK: - When user holds the screen annotation is added
     //When the user holds down the touch for a longer time they will be prompted to a modal view where they can create new events through a form
     @IBAction func longTouchHappened(_ sender: UILongPressGestureRecognizer) {
         if sender.state == .began {
@@ -20,6 +22,7 @@ class MapViewController: UIViewController {
         }
     }
     
+    //MARK: - Center button clicked
     @IBAction func centerOnUserLocation(_ sender: Any) {
         let userPosition = mapView.userLocation.coordinate
         centerMapOnLocation(location: CLLocation(latitude: userPosition.latitude, longitude: userPosition.longitude))
@@ -31,26 +34,32 @@ class MapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //checks location services
         checkLocationServices()
         mapView.delegate = self
-        //Sets initial location to Jönköping
-        //TODO: In the future set the initial location to the users current location
-        let initialLocation = CLLocation(latitude: 57.7826, longitude: 14.1618)
-        centerMapOnLocation(location: initialLocation)
+        
+        
+        //starts updating the users location
+        locationManager.startUpdatingLocation()
+        //Sets initial location to the users location
+        let initialLocation = locationManager.location
+        centerMapOnLocation(location: initialLocation ?? CLLocation(latitude: 57.78, longitude: 14.16)) // Sets the initial location to the users location if there is no user location the location is set to Jönköping, Sweden
+        
         //Fills the list with 100 random locations around the world
         for i in 0..<100{
             let location = CLLocationCoordinate2D(latitude: CLLocationDegrees(Float.random(in: 0..<90)), longitude: CLLocationDegrees(Float.random(in: 0..<180)))
             EventHandler.instance.insertNewEvent(newEvent: Event(coordinates: location))
             print(EventHandler.instance.allEvents[i].location)
         }
+        
+        //For every event in the allEvents array add an annotation the the map
         for i in EventHandler.instance.allEvents {
-            i.setLocation(coordinates: i.coordinate)
-            print(i.location)
             mapView.addAnnotation(i)
         }
     }
     
-    //Method for calling the checkLocationAuthorizat ion method
+    //MARK: - check user authentication for position
+    //Method for calling the checkLocationAuthorization method
     func checkLocationServices(){
         if CLLocationManager.locationServicesEnabled(){
             checkLocationAuthorization()
@@ -78,6 +87,7 @@ class MapViewController: UIViewController {
         }
     }
     
+    //MARK: - Center the map on a specific position
     //Called when you want to center the mapView on a speicfic location
     func centerMapOnLocation(location: CLLocation){
         let regionRadius: CLLocationDistance = 1000
