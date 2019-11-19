@@ -8,10 +8,21 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 class MapViewController: UIViewController {
-    var allEvents: [Event] = []
     
+    //MARK: - When user holds the screen annotation is added
+    //When the user holds down the touch for a longer time they will be prompted to a modal view where they can create new events through a form
+    @IBAction func longTouchHappened(_ sender: UILongPressGestureRecognizer) {
+        if sender.state == .began {
+            let position = sender.location(in: self.mapView)
+            let newCoordinate = self.mapView.convert(position, toCoordinateFrom: self.mapView)
+            performSegue(withIdentifier: "CreateNewEvent", sender: newCoordinate)
+        }
+    }
+    
+    //MARK: - Center button clicked
     @IBAction func centerOnUserLocation(_ sender: Any) {
         let userPosition = mapView.userLocation.coordinate
         centerMapOnLocation(location: CLLocation(latitude: userPosition.latitude, longitude: userPosition.longitude))
@@ -23,22 +34,32 @@ class MapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //checks location services
         checkLocationServices()
         mapView.delegate = self
-        //Sets initial location to Jönköping
-        //TODO: In the future set the initial location to the users current location
-        let initialLocation = CLLocation(latitude: 57.7826, longitude: 14.1618)
-        let mapEvent = Event(title: "This is an event", location: "Jönköping", description: "Local event", coordinates: CLLocationCoordinate2D(latitude: 57.7826, longitude: 14.1618))
-        let otherEvent = Event(title: "Mappy Launch", location: "Jönköping", description: "The launch of the Mappy app", coordinates: CLLocationCoordinate2D(latitude: 57.78, longitude: 14.16))
-        allEvents.append(mapEvent)
-        allEvents.append(otherEvent)
-        for event in allEvents {
-            mapView.addAnnotation(event)
+        
+        
+        //starts updating the users location
+        locationManager.startUpdatingLocation()
+        //Sets initial location to the users location
+        let initialLocation = locationManager.location
+        centerMapOnLocation(location: initialLocation ?? CLLocation(latitude: 57.78, longitude: 14.16)) // Sets the initial location to the users location if there is no user location the location is set to Jönköping, Sweden
+        
+        //Fills the list with 100 random locations around the world
+        for i in 0..<100{
+            let location = CLLocationCoordinate2D(latitude: CLLocationDegrees(Float.random(in: 0..<90)), longitude: CLLocationDegrees(Float.random(in: 0..<180)))
+            EventHandler.instance.insertNewEvent(newEvent: Event(coordinates: location))
+            print(EventHandler.instance.allEvents[i].location)
         }
-        centerMapOnLocation(location: initialLocation)
+        
+        //For every event in the allEvents array add an annotation the the map
+        for i in EventHandler.instance.allEvents {
+            mapView.addAnnotation(i)
+        }
     }
     
-    //Method for calling the checkLocationAuthorizat ion method
+    //MARK: - check user authentication for position
+    //Method for calling the checkLocationAuthorization method
     func checkLocationServices(){
         if CLLocationManager.locationServicesEnabled(){
             checkLocationAuthorization()
@@ -66,6 +87,7 @@ class MapViewController: UIViewController {
         }
     }
     
+    //MARK: - Center the map on a specific position
     //Called when you want to center the mapView on a speicfic location
     func centerMapOnLocation(location: CLLocation){
         let regionRadius: CLLocationDistance = 1000
@@ -77,6 +99,9 @@ class MapViewController: UIViewController {
         if segue.identifier == "DetailedEvent" {
             let destinationViewController = segue.destination as? DetailedEventViewController
             destinationViewController?.selectedEvent = sender as? Event
+        } else if segue.identifier == "CreateNewEvent" {
+            let destinationViewController = segue.destination as? CreateNewEventViewController
+            destinationViewController?.eventCoordinates = sender as? CLLocationCoordinate2D
         }
     }
 }
@@ -98,6 +123,7 @@ extension MapViewController: MKMapViewDelegate {
             view.canShowCallout = true
             view.calloutOffset = CGPoint(x: -5, y: 5)
             view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+            view.markerTintColor = UIColor.systemGreen
         }
         return view
     }
@@ -107,16 +133,5 @@ extension MapViewController: MKMapViewDelegate {
     calloutAccessoryControlTapped control: UIControl){
         let selectedEvent = view.annotation as! Event
         performSegue(withIdentifier: "DetailedEvent", sender: selectedEvent)
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let touch = touches.first {
-            let position = touch.location(in: self.mapView)
-            print(position)
-            let newCoordinate = self.mapView.convert(position, toCoordinateFrom: self.mapView)
-            let annotation = MKPointAnnotation()
-            annotation.coordinate = newCoordinate
-            mapView.addAnnotation(annotation)
-        }
     }
 }
