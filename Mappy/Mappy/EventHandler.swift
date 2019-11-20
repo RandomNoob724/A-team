@@ -14,8 +14,10 @@ class EventHandler {
     
     var allEvents: [Event] = []
     
-    func insertNewEvent(newEvent: Event){
+    func insertNewEvent(newEvent: Event, mapView: MKMapView){
+        newEvent.setLocation(coordinates: newEvent.coordinate)
         allEvents.append(newEvent)
+        updateMap(mapView: mapView)
     }
     
     func updateMap(mapView: MKMapView){

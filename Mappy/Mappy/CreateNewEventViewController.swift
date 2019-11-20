@@ -17,21 +17,14 @@ class CreateNewEventViewController: UIViewController {
     
     var eventCoordinates: CLLocationCoordinate2D!
     
+    var mapView: MKMapView!
+    
     @IBAction func createNewEventButtonClicked(_ sender: UIButton) {
         guard let title = eventTitle.text else {return}
-        let newEvent = Event(title: title, location: "", description: "osdjfoijs", coordinates: eventCoordinates)
-        newEvent.setLocation(coordinates: eventCoordinates)
-        EventHandler.instance.insertNewEvent(newEvent: newEvent)
+        let newEvent = Event(title: title, description: "Something random that i do not know what it is", coordinates: eventCoordinates)
+        EventHandler.instance.insertNewEvent(newEvent: newEvent, mapView: mapView)
         self.dismiss(animated: true, completion: nil)
     }
-    
-//    func createNewEventOnPosition(eventCoordinates: CLLocationCoordinate2D) -> Event {
-//        guard let title = eventTitle.text else {return nil}
-//        guard let location = eventLocation.text else {return nil}
-//        let newEvent = Event(title: title, location: location, description: "Placeholder", coordinates: eventPosition)
-//        return newEvent
-//    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -79,22 +79,17 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ojx-7h-9YH">
-                                <rect key="frame" x="20" y="358" width="374" height="450"/>
+                                <rect key="frame" x="20" y="408" width="374" height="400"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="450" id="3gx-NB-N2T"/>
+                                    <constraint firstAttribute="height" constant="400" id="3gx-NB-N2T"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xdx-A8-N4G">
-                                <rect key="frame" x="20" y="102" width="374" height="187"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Xdx-A8-N4G" secondAttribute="height" multiplier="2:1" id="lmo-hv-bcs"/>
-                                </constraints>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xzz-bR-hVb">
-                                <rect key="frame" x="10" y="299" width="394" height="49"/>
+                                <rect key="frame" x="10" y="346" width="394" height="52"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
                                 <state key="normal" title="Get there"/>
                                 <connections>
                                     <action selector="getThereClicked:" destination="Fic-Oe-IJ3" eventType="touchUpInside" id="7eX-Az-tsp"/>
@@ -117,15 +112,11 @@
                             <constraint firstItem="Ojx-7h-9YH" firstAttribute="top" secondItem="Xzz-bR-hVb" secondAttribute="bottom" constant="10" id="4BP-cL-RU9"/>
                             <constraint firstItem="5Tj-Js-52m" firstAttribute="trailing" secondItem="xzw-KH-fui" secondAttribute="trailing" constant="10" id="7ZB-m0-YuT"/>
                             <constraint firstItem="Xzz-bR-hVb" firstAttribute="leading" secondItem="5Tj-Js-52m" secondAttribute="leading" constant="10" id="Bed-bB-1Xa"/>
-                            <constraint firstItem="Xdx-A8-N4G" firstAttribute="leading" secondItem="5Tj-Js-52m" secondAttribute="leading" constant="20" id="Ber-qf-5Py"/>
                             <constraint firstItem="Bnd-OB-cCb" firstAttribute="leading" secondItem="5Tj-Js-52m" secondAttribute="leading" constant="10" id="CNm-mH-xPL"/>
                             <constraint firstItem="5Tj-Js-52m" firstAttribute="trailing" secondItem="Xzz-bR-hVb" secondAttribute="trailing" constant="10" id="Dqq-bt-bfJ"/>
-                            <constraint firstItem="Xzz-bR-hVb" firstAttribute="top" secondItem="Xdx-A8-N4G" secondAttribute="bottom" constant="10" id="LuK-V6-EGN"/>
                             <constraint firstItem="Bnd-OB-cCb" firstAttribute="top" secondItem="5Tj-Js-52m" secondAttribute="top" constant="50" id="MOL-sX-baI"/>
-                            <constraint firstItem="5Tj-Js-52m" firstAttribute="trailing" secondItem="Xdx-A8-N4G" secondAttribute="trailing" constant="20" id="QAN-A9-iqS"/>
                             <constraint firstItem="5Tj-Js-52m" firstAttribute="trailing" secondItem="Bnd-OB-cCb" secondAttribute="trailing" constant="10" id="VpS-j7-Wz4"/>
                             <constraint firstItem="xzw-KH-fui" firstAttribute="top" secondItem="5Tj-Js-52m" secondAttribute="top" constant="10" id="bV4-2V-lqZ"/>
-                            <constraint firstItem="Xdx-A8-N4G" firstAttribute="top" secondItem="Bnd-OB-cCb" secondAttribute="bottom" constant="10" id="dX2-BW-KBG"/>
                             <constraint firstItem="5Tj-Js-52m" firstAttribute="trailing" secondItem="Ojx-7h-9YH" secondAttribute="trailing" constant="20" id="fci-eX-UpT"/>
                             <constraint firstItem="Ojx-7h-9YH" firstAttribute="leading" secondItem="5Tj-Js-52m" secondAttribute="leading" constant="20" id="nPr-5G-9ew"/>
                             <constraint firstItem="Ojx-7h-9YH" firstAttribute="bottom" secondItem="5Tj-Js-52m" secondAttribute="bottom" id="vfp-r6-rO4"/>
@@ -135,7 +126,6 @@
                     <connections>
                         <outlet property="DetailedViewHeader" destination="Bnd-OB-cCb" id="XAc-0d-zxM"/>
                         <outlet property="detailedViewDescription" destination="Ojx-7h-9YH" id="7eG-Zf-CEI"/>
-                        <outlet property="detailedViewImage" destination="Xdx-A8-N4G" id="lgq-lw-1ud"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l2s-mT-d0i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

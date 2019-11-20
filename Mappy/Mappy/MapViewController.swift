@@ -46,19 +46,16 @@ class MapViewController: UIViewController {
         centerMapOnLocation(location: initialLocation ?? CLLocation(latitude: 57.78, longitude: 14.16)) // Sets the initial location to the users location if there is no user location the location is set to Jönköping, Sweden
         
         //Fills the list with 100 random locations around the world
+        EventHandler.instance.insertNewEvent(newEvent: Event(coordinates: CLLocationCoordinate2D(latitude: 57.78, longitude: 14.16)), mapView: mapView)
+        EventHandler.instance.insertNewEvent(newEvent: Event(coordinates: CLLocationCoordinate2D(latitude: 59.385, longitude: 12.116)), mapView: mapView)
         for i in 0..<100{
-            let location = CLLocationCoordinate2D(latitude: CLLocationDegrees(Float.random(in: 0..<90)), longitude: CLLocationDegrees(Float.random(in: 0..<180)))
-            EventHandler.instance.insertNewEvent(newEvent: Event(coordinates: location))
-            print(EventHandler.instance.allEvents[i].location)
+            let location = CLLocationCoordinate2D(latitude: CLLocationDegrees(Float.random(in: 57.78..<60)), longitude: CLLocationDegrees(Float.random(in: 12.116..<15)))
+            EventHandler.instance.insertNewEvent(newEvent: Event(coordinates: location), mapView: mapView)
         }
         
-        //For every event in the allEvents array add an annotation the the map
-        for i in EventHandler.instance.allEvents {
-            mapView.addAnnotation(i)
-        }
+        mapView.addAnnotations(EventHandler.instance.allEvents)
     }
     
-    //MARK: - check user authentication for position
     //Method for calling the checkLocationAuthorization method
     func checkLocationServices(){
         if CLLocationManager.locationServicesEnabled(){
@@ -101,6 +98,7 @@ class MapViewController: UIViewController {
             destinationViewController?.selectedEvent = sender as? Event
         } else if segue.identifier == "CreateNewEvent" {
             let destinationViewController = segue.destination as? CreateNewEventViewController
+            destinationViewController?.mapView = mapView
             destinationViewController?.eventCoordinates = sender as? CLLocationCoordinate2D
         }
     }
