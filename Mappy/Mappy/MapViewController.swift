@@ -37,8 +37,7 @@ class MapViewController: UIViewController {
         //checks location services
         checkLocationServices()
         mapView.delegate = self
-        
-        
+    
         //starts updating the users location
         locationManager.startUpdatingLocation()
         //Sets initial location to the users location

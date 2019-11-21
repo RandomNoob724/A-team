@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,9 @@
 		11D29EC9237ED84500FCC890 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D29EC8237ED84500FCC890 /* Event.swift */; };
 		11D29ECB237EDBDD00FCC890 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D29ECA237EDBDD00FCC890 /* User.swift */; };
 		11D29ED0237F05DC00FCC890 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11D29ECF237F05DC00FCC890 /* MapKit.framework */; };
+		68147A952386C24500A203E5 /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68147A942386C24500A203E5 /* DataHandler.swift */; };
+		6866408B2386A1F200C2D088 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6866408A2386A1F200C2D088 /* GoogleService-Info.plist */; };
+		7214C98B2E23980F6BB58BF7 /* Pods_Mappy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3B34F4D4440ACC2FD0D1018 /* Pods_Mappy.framework */; };
 		EB7F5097237DF0E000D71C72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F5096237DF0E000D71C72 /* AppDelegate.swift */; };
 		EB7F5099237DF0E000D71C72 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F5098237DF0E000D71C72 /* SceneDelegate.swift */; };
 		EB7F509B237DF0E000D71C72 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F509A237DF0E000D71C72 /* ViewController.swift */; };
@@ -24,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		01E62B1287197BF5EBA6BC99 /* Pods-Mappy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mappy.release.xcconfig"; path = "Target Support Files/Pods-Mappy/Pods-Mappy.release.xcconfig"; sourceTree = "<group>"; };
 		111A9C9023804D930004E5B1 /* CreateNewEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewEventViewController.swift; sourceTree = "<group>"; };
 		111A9C9223806B7B0004E5B1 /* EventHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventHandler.swift; sourceTree = "<group>"; };
 		11BF6DD623801FC000A73512 /* DetailedEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedEventViewController.swift; sourceTree = "<group>"; };
@@ -32,6 +36,10 @@
 		11D29EC8237ED84500FCC890 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		11D29ECA237EDBDD00FCC890 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		11D29ECF237F05DC00FCC890 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		68147A942386C24500A203E5 /* DataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHandler.swift; sourceTree = "<group>"; };
+		6866408A2386A1F200C2D088 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A2C70CEE4EF2033F1A590EE3 /* Pods-Mappy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mappy.debug.xcconfig"; path = "Target Support Files/Pods-Mappy/Pods-Mappy.debug.xcconfig"; sourceTree = "<group>"; };
+		A3B34F4D4440ACC2FD0D1018 /* Pods_Mappy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mappy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB7F5093237DF0E000D71C72 /* Mappy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mappy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB7F5096237DF0E000D71C72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB7F5098237DF0E000D71C72 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -48,6 +56,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				11D29ED0237F05DC00FCC890 /* MapKit.framework in Frameworks */,
+				7214C98B2E23980F6BB58BF7 /* Pods_Mappy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,8 +67,18 @@
 			isa = PBXGroup;
 			children = (
 				11D29ECF237F05DC00FCC890 /* MapKit.framework */,
+				A3B34F4D4440ACC2FD0D1018 /* Pods_Mappy.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4C0F73026529C50419C26245 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A2C70CEE4EF2033F1A590EE3 /* Pods-Mappy.debug.xcconfig */,
+				01E62B1287197BF5EBA6BC99 /* Pods-Mappy.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		EB7F508A237DF0E000D71C72 = {
@@ -68,6 +87,7 @@
 				EB7F5095237DF0E000D71C72 /* Mappy */,
 				EB7F5094237DF0E000D71C72 /* Products */,
 				11D29ECE237F05DC00FCC890 /* Frameworks */,
+				4C0F73026529C50419C26245 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,8 +103,10 @@
 			isa = PBXGroup;
 			children = (
 				EB7F5096237DF0E000D71C72 /* AppDelegate.swift */,
+				68147A942386C24500A203E5 /* DataHandler.swift */,
 				EB7F5098237DF0E000D71C72 /* SceneDelegate.swift */,
 				EB7F509A237DF0E000D71C72 /* ViewController.swift */,
+				6866408A2386A1F200C2D088 /* GoogleService-Info.plist */,
 				EB7F509C237DF0E000D71C72 /* Main.storyboard */,
 				111A9C9023804D930004E5B1 /* CreateNewEventViewController.swift */,
 				11C80AE423819BBC00AC8626 /* EventTableViewController.swift */,
@@ -107,9 +129,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EB7F50A7237DF0E100D71C72 /* Build configuration list for PBXNativeTarget "Mappy" */;
 			buildPhases = (
+				52B91DA5733B8F6EC209935E /* [CP] Check Pods Manifest.lock */,
 				EB7F508F237DF0E000D71C72 /* Sources */,
 				EB7F5090237DF0E000D71C72 /* Frameworks */,
 				EB7F5091237DF0E000D71C72 /* Resources */,
+				9340285D35FEE5A7609F3363 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -159,6 +183,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB7F50A3237DF0E100D71C72 /* LaunchScreen.storyboard in Resources */,
+				6866408B2386A1F200C2D088 /* GoogleService-Info.plist in Resources */,
 				EB7F50A0237DF0E100D71C72 /* Assets.xcassets in Resources */,
 				EB7F509E237DF0E000D71C72 /* Main.storyboard in Resources */,
 			);
@@ -166,12 +191,55 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		52B91DA5733B8F6EC209935E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Mappy-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9340285D35FEE5A7609F3363 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Mappy/Pods-Mappy-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Mappy/Pods-Mappy-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Mappy/Pods-Mappy-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		EB7F508F237DF0E000D71C72 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				EB7F509B237DF0E000D71C72 /* ViewController.swift in Sources */,
+				68147A952386C24500A203E5 /* DataHandler.swift in Sources */,
 				EB7F5097237DF0E000D71C72 /* AppDelegate.swift in Sources */,
 				11D29ECB237EDBDD00FCC890 /* User.swift in Sources */,
 				11BF6DD723801FC000A73512 /* DetailedEventViewController.swift in Sources */,
@@ -322,6 +390,7 @@
 		};
 		EB7F50A8237DF0E100D71C72 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A2C70CEE4EF2033F1A590EE3 /* Pods-Mappy.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -339,6 +408,7 @@
 		};
 		EB7F50A9237DF0E100D71C72 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 01E62B1287197BF5EBA6BC99 /* Pods-Mappy.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
