@@ -24,3 +24,4 @@ class EventHandler {
         mapView.addAnnotation(allEvents[allEvents.endIndex-1])
     }
 }
+

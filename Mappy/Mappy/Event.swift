@@ -17,16 +17,18 @@ class Event: NSObject, MKAnnotation{
     var title: String?
     var locationName: String
     var eventDescription: String
+    var eventId: String
     
     private let locationManager = CLLocationManager()
     
     let geocoder = CLGeocoder()
     
-    init(title: String = "PlaceHolder", location: String = "", description: String = "This is an event to celebrate the null point", coordinates: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 0, longitude: 0)) {
+    init(title: String = "PlaceHolder", location: String = "No location name", description: String = "This is an event to celebrate the null point", coordinates: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 0, longitude: 0),eventId: String = "0") {
         self.title = title
         self.eventDescription = description
         self.coordinate = coordinates
-        self.locationName = location
+        self.location = location
+        self.eventId = eventId
         super.init()
     }
     
