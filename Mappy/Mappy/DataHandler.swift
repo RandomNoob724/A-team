@@ -19,7 +19,6 @@ class DataHandler{
         ref = db.collection("events").addDocument(data: [
             "title" : event.title ?? "eventTitle",
             "eventDescription" : event.eventDescription,
-            "location" : event.locationName,
             "latitude": event.coordinate.latitude,
             "longitude": event.coordinate.longitude,
             "eventId" : event.eventId
@@ -41,25 +40,20 @@ class DataHandler{
                 print("error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
-                    listOfEvents.append(Event(
-                       title: document.data()["title"] as? String ?? "title",
-                       location: document.data()["location"] as? String ?? "location",
-                       description: document.data()["eventDescription"] as? String ?? "eventDescription",
-                       coordinates: CLLocationCoordinate2D(
-                           latitude: document.data()["latitude"] as? CLLocationDegrees ?? CLLocationDegrees(signOf: 0.0,magnitudeOf: 0.0),
-                           longitude: document.data()["longitude"] as? CLLocationDegrees ?? CLLocationDegrees(signOf: 0.0,magnitudeOf: 0.0)
-                       ),
-                       eventId: document.documentID
-                   ))
+                    var eventObj = Event(
+                        title: document.data()["title"] as? String ?? "title",
+                        description: document.data()["eventDescription"] as? String ?? "eventDescription",
+                        coordinates: CLLocationCoordinate2D(
+                            latitude: document.data()["latitude"] as? CLLocationDegrees ?? CLLocationDegrees(signOf: 0.0,magnitudeOf: 0.0),
+                            longitude: document.data()["longitude"] as? CLLocationDegrees ?? CLLocationDegrees(signOf: 0.0,magnitudeOf: 0.0)
+                        ),
+                        eventId: document.documentID
+                    )
+                    eventObj.setLocation(coordinates: eventObj.coordinate)
+                    listOfEvents.append(eventObj)
                 }
                 completion?(listOfEvents)
             }
         }
     }
 }
-
-
-
-
-
-

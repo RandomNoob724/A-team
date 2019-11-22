@@ -56,16 +56,16 @@ class Event: NSObject, MKAnnotation{
         self.coordinate = newCoordinates
     }
     
+    var subtitle: String?{
+        return self.locationName
+    }
+    
     func mapItem() -> MKMapItem {
         let addressDict = [CNPostalAddressStreetKey: subtitle!]
         let placemark = MKPlacemark(coordinate: coordinate, addressDictionary: addressDict)
         let mapItem = MKMapItem(placemark: placemark)
         mapItem.name = title
         return mapItem
-    }
-    
-    var subtitle: String?{
-        return self.locationName
     }
     
 }

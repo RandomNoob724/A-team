@@ -22,10 +22,10 @@ class CreateNewEventViewController: UIViewController {
     @IBAction func createNewEventButtonClicked(_ sender: UIButton) {
         guard let title = eventTitle.text else {return}
         let newEvent = Event(title: title, description: "Something random that i do not know what it is", coordinates: eventCoordinates)
-        EventHandler.instance.insertNewEvent(newEvent: newEvent, mapView: mapView)
         DataHandler.instance.addEvent(event: newEvent)
+        EventHandler.instance.insertNewEvent(newEvent: newEvent, mapView: mapView)
         self.dismiss(animated: true, completion: nil)
-    }
+}
     override func viewDidLoad() {
         super.viewDidLoad()
 

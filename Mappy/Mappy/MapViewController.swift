@@ -40,15 +40,16 @@ class MapViewController: UIViewController {
         
         //starts updating the users location
         locationManager.startUpdatingLocation()
+        
         //Sets initial location to the users location
         let initialLocation = locationManager.location
         centerMapOnLocation(location: initialLocation ?? CLLocation(latitude: 57.78, longitude: 14.16)) // Sets the initial location to the users location if there is no user location the location is set to Jönköping, Sweden
         
+        //Fetches events from the firestore database and ads them into the eventhandler.instance.allEvents
+        //adds every annotation onto the map
         DataHandler.instance.readEvents(completion: { loadedEvents in
             EventHandler.instance.allEvents = loadedEvents
-            for i in EventHandler.instance.allEvents{
-                self.mapView.addAnnotation(i)
-            }
+            self.mapView.addAnnotations(EventHandler.instance.allEvents)
         })
     }
     
@@ -102,6 +103,7 @@ class MapViewController: UIViewController {
 
 //Creates new mapViewDelegate
 extension MapViewController: MKMapViewDelegate {
+    
     //Used to make custom mapView annotations
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView?{
         guard let annotation = annotation as? Event else {return nil}
