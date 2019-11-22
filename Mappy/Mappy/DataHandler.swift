@@ -19,10 +19,10 @@ class DataHandler{
         ref = db.collection("events").addDocument(data: [
             "title" : event.title ?? "eventTitle",
             "eventDescription" : event.eventDescription,
-            "location" : event.location,
+            "location" : event.locationName,
             "latitude": event.coordinate.latitude,
             "longitude": event.coordinate.longitude,
-            "eventId" : "sakd"
+            "eventId" : event.eventId
         ]) { err in
             if let err = err {
                 print("error adding to database: \(err)")

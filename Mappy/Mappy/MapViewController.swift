@@ -44,11 +44,10 @@ class MapViewController: UIViewController {
         let initialLocation = locationManager.location
         centerMapOnLocation(location: initialLocation ?? CLLocation(latitude: 57.78, longitude: 14.16)) // Sets the initial location to the users location if there is no user location the location is set to Jönköping, Sweden
         
-        
         DataHandler.instance.readEvents(completion: { loadedEvents in
             EventHandler.instance.allEvents = loadedEvents
             for i in EventHandler.instance.allEvents{
-                print(i.coordinate)
+                self.mapView.addAnnotation(i)
             }
         })
     }

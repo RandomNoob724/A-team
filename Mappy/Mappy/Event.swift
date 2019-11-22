@@ -27,7 +27,7 @@ class Event: NSObject, MKAnnotation{
         self.title = title
         self.eventDescription = description
         self.coordinate = coordinates
-        self.location = location
+        self.locationName = location
         self.eventId = eventId
         super.init()
     }
@@ -41,7 +41,7 @@ class Event: NSObject, MKAnnotation{
             guard let placemark = placemark else { return }
             
             if placemark.country != nil {
-                self.locationName += "\(placemark.country!)"
+                self.locationName = "\(placemark.country!)"
             }
             if placemark.administrativeArea != nil{
                 self.locationName += ", \(placemark.administrativeArea!)"

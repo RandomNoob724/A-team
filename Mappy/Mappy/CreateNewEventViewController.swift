@@ -23,6 +23,7 @@ class CreateNewEventViewController: UIViewController {
         guard let title = eventTitle.text else {return}
         let newEvent = Event(title: title, description: "Something random that i do not know what it is", coordinates: eventCoordinates)
         EventHandler.instance.insertNewEvent(newEvent: newEvent, mapView: mapView)
+        DataHandler.instance.addEvent(event: newEvent)
         self.dismiss(animated: true, completion: nil)
     }
     override func viewDidLoad() {
