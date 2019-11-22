@@ -37,24 +37,20 @@ class MapViewController: UIViewController {
         //checks location services
         checkLocationServices()
         mapView.delegate = self
-    
+        
         //starts updating the users location
         locationManager.startUpdatingLocation()
         //Sets initial location to the users location
         let initialLocation = locationManager.location
         centerMapOnLocation(location: initialLocation ?? CLLocation(latitude: 57.78, longitude: 14.16)) // Sets the initial location to the users location if there is no user location the location is set to Jönköping, Sweden
         
-        //Fills the list with 100 random locations around the world
-        for i in 0..<100{
-            let location = CLLocationCoordinate2D(latitude: CLLocationDegrees(Float.random(in: 0..<90)), longitude: CLLocationDegrees(Float.random(in: 0..<180)))
-            EventHandler.instance.insertNewEvent(newEvent: Event(coordinates: location))
-            print(EventHandler.instance.allEvents[i].location)
-        }
         
-        //For every event in the allEvents array add an annotation the the map
-        for i in EventHandler.instance.allEvents {
-            mapView.addAnnotation(i)
-        }
+        DataHandler.instance.readEvents(completion: { loadedEvents in
+            EventHandler.instance.allEvents = loadedEvents
+            for i in EventHandler.instance.allEvents{
+                print(i.coordinate)
+            }
+        })
     }
     
     //MARK: - check user authentication for position

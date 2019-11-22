@@ -14,6 +14,7 @@ class EventHandler {
     
     var allEvents: [Event] = []
     
+    
     func insertNewEvent(newEvent: Event){
         allEvents.append(newEvent)
     }
@@ -22,3 +23,4 @@ class EventHandler {
         mapView.addAnnotation(allEvents[allEvents.endIndex-1])
     }
 }
+
