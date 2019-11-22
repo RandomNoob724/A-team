@@ -22,7 +22,6 @@ class DataHandler{
             "location" : event.location,
             "latitude": event.coordinate.latitude,
             "longitude": event.coordinate.longitude,
-            "eventId" : "sakd"
         ]) { err in
             if let err = err {
                 print("error adding to database: \(err)")
