@@ -20,8 +20,7 @@ class DataHandler{
             "title" : event.title ?? "eventTitle",
             "eventDescription" : event.eventDescription,
             "latitude": event.coordinate.latitude,
-            "longitude": event.coordinate.longitude,
-            "eventId" : event.eventId
+            "longitude": event.coordinate.longitude
         ]) { err in
             if let err = err {
                 print("error adding to database: \(err)")
@@ -40,15 +39,14 @@ class DataHandler{
                 print("error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
-                    var eventObj = Event(
+                    let eventObj = Event(
                         title: document.data()["title"] as? String ?? "title",
                         description: document.data()["eventDescription"] as? String ?? "eventDescription",
                         coordinates: CLLocationCoordinate2D(
                             latitude: document.data()["latitude"] as? CLLocationDegrees ?? CLLocationDegrees(signOf: 0.0,magnitudeOf: 0.0),
                             longitude: document.data()["longitude"] as? CLLocationDegrees ?? CLLocationDegrees(signOf: 0.0,magnitudeOf: 0.0)
-                        ),
-                        eventId: document.documentID
-                    )
+                        
+                    ))
                     eventObj.setLocation(coordinates: eventObj.coordinate)
                     listOfEvents.append(eventObj)
                 }
