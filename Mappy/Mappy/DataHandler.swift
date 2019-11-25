@@ -61,6 +61,17 @@ class DataHandler{
             }
         }
     }
+    
+    //MARK: DELETE EVENT
+    func deleteEvent(id:String) {
+        db.collection("events").document(id).delete() { err in
+            if let err = err {
+                print("Error removing document: \(err)")
+            } else {
+                print("Document successfully removed!")
+            }
+        }
+    }
 }
 
 
