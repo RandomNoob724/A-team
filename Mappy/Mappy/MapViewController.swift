@@ -32,6 +32,10 @@ class MapViewController: UIViewController {
     
     let locationManager = CLLocationManager()
     
+    override func viewDidAppear(_ animated: Bool) {
+        mapView.addAnnotations(EventHandler.instance.allEvents)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //checks location services
