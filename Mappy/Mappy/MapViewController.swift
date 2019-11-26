@@ -38,9 +38,9 @@ class MapViewController: UIViewController {
         checkLocationServices()
         mapView.delegate = self
         
+        
         //starts updating the users location
         locationManager.startUpdatingLocation()
-        
         //Sets initial location to the users location
         let initialLocation = locationManager.location
         centerMapOnLocation(location: initialLocation ?? CLLocation(latitude: 57.78, longitude: 14.16)) // Sets the initial location to the users location if there is no user location the location is set to Jönköping, Sweden
