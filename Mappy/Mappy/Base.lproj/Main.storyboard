@@ -228,6 +228,9 @@
                     </navigationItem>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="AR7-53-wXu">
                         <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <action selector="refreshTableViewController:" destination="nre-o8-2si" eventType="valueChanged" id="8h6-EJ-2py"/>
+                        </connections>
                     </refreshControl>
                     <connections>
                         <outlet property="eventTableView" destination="Ygh-q1-u1l" id="nzq-Q6-uef"/>
