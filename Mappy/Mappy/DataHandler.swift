@@ -20,7 +20,6 @@ class DataHandler{
         ref = db.collection("events").addDocument(data: [
             "title"             : event.title ?? "eventTitle",
             "eventDescription"  : event.eventDescription,
-            "location"          : event.location,
             "latitude"          : event.coordinate.latitude,
             "longitude"         : event.coordinate.longitude,
             "date"              : event.date,
@@ -51,7 +50,11 @@ class DataHandler{
                             latitude: document.data()["latitude"] as? CLLocationDegrees ?? CLLocationDegrees(signOf: 0.0,magnitudeOf: 0.0),
                             longitude: document.data()["longitude"] as? CLLocationDegrees ?? CLLocationDegrees(signOf: 0.0,magnitudeOf: 0.0)
                         
-                    ))
+                        ),
+                        eventId : document.documentID,
+                        date : document.data()["date"] as? String ?? "no set date",
+                        time : document.data()["time"] as? String ?? "no set time"
+                    )
                     eventObj.setLocation(coordinates: eventObj.coordinate)
                     listOfEvents.append(eventObj)
                 }

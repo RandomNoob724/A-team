@@ -27,7 +27,7 @@ class Event: NSObject, MKAnnotation{
     
     let geocoder = CLGeocoder()
     
-    init(title: String = "PlaceHolder", location: String = "No location name", description: String = "This is an event to celebrate the null point", coordinates: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 0, longitude: 0), date: String = "No set date", time: String = "No set time") {
+    init(title: String = "PlaceHolder", location: String = "No location name", description: String = "This is an event to celebrate the null point", coordinates: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 0, longitude: 0), eventId: String = "non id", date: String = "No set date", time: String = "No set time") {
         self.title = title
         self.eventDescription = description
         self.coordinate = coordinates
