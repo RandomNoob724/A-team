@@ -14,13 +14,17 @@ class DataHandler{
     
     static let instance = DataHandler()
     let db = Firestore.firestore()
+    //MARK: ADD EVENT
     func addEvent(event: Event){
         var ref: DocumentReference? = nil
         ref = db.collection("events").addDocument(data: [
-            "title" : event.title ?? "eventTitle",
-            "eventDescription" : event.eventDescription,
-            "latitude": event.coordinate.latitude,
-            "longitude": event.coordinate.longitude
+            "title"             : event.title ?? "eventTitle",
+            "eventDescription"  : event.eventDescription,
+            "location"          : event.location,
+            "latitude"          : event.coordinate.latitude,
+            "longitude"         : event.coordinate.longitude,
+            "date"              : event.date,
+            "time"              : event.time
         ]) { err in
             if let err = err {
                 print("error adding to database: \(err)")
@@ -29,7 +33,8 @@ class DataHandler{
             }
         }
     }
-     
+    
+    //MARK: READ EVENT
     func readEvents(completion:((Array<Event>)-> Void)?) {
     
         var listOfEvents: [Event] = []
@@ -51,6 +56,17 @@ class DataHandler{
                     listOfEvents.append(eventObj)
                 }
                 completion?(listOfEvents)
+            }
+        }
+    }
+    
+    //MARK: DELETE EVENT
+    func deleteEvent(id:String) {
+        db.collection("events").document(id).delete() { err in
+            if let err = err {
+                print("Error removing document: \(err)")
+            } else {
+                print("Document successfully removed!")
             }
         }
     }

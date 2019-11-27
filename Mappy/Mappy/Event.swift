@@ -19,7 +19,9 @@ class Event: NSObject, MKAnnotation{
     var date: String
     var time: String
     var eventDescription: String
-
+    var eventId: String
+    var date: String
+    var time: String
     
     private let locationManager = CLLocationManager()
     
@@ -29,7 +31,8 @@ class Event: NSObject, MKAnnotation{
         self.title = title
         self.eventDescription = description
         self.coordinate = coordinates
-        self.locationName = location
+        self.location = location
+        self.eventId = eventId
         self.date = date
         self.time = time
         super.init()

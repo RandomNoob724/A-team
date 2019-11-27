@@ -37,7 +37,9 @@ class CreateNewEventViewController: UIViewController {
             EventHandler.instance.updateMap(mapView: mapView)
         }
         self.dismiss(animated: true, completion: nil)
-}
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

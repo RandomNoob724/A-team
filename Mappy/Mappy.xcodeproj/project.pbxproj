@@ -17,6 +17,8 @@
 		11D29ED0237F05DC00FCC890 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11D29ECF237F05DC00FCC890 /* MapKit.framework */; };
 		11E9CB792388131B00B476D2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 11E9CB782388131B00B476D2 /* GoogleService-Info.plist */; };
 		68147A952386C24500A203E5 /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68147A942386C24500A203E5 /* DataHandler.swift */; };
+		68379491238C1C0000E909D4 /* UserHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68379490238C1C0000E909D4 /* UserHandler.swift */; };
+		6866408B2386A1F200C2D088 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6866408A2386A1F200C2D088 /* GoogleService-Info.plist */; };
 		7214C98B2E23980F6BB58BF7 /* Pods_Mappy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3B34F4D4440ACC2FD0D1018 /* Pods_Mappy.framework */; };
 		EB7F5097237DF0E000D71C72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F5096237DF0E000D71C72 /* AppDelegate.swift */; };
 		EB7F5099237DF0E000D71C72 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F5098237DF0E000D71C72 /* SceneDelegate.swift */; };
@@ -38,6 +40,8 @@
 		11D29ECF237F05DC00FCC890 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		11E9CB782388131B00B476D2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		68147A942386C24500A203E5 /* DataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHandler.swift; sourceTree = "<group>"; };
+		68379490238C1C0000E909D4 /* UserHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHandler.swift; sourceTree = "<group>"; };
+		6866408A2386A1F200C2D088 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A2C70CEE4EF2033F1A590EE3 /* Pods-Mappy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mappy.debug.xcconfig"; path = "Target Support Files/Pods-Mappy/Pods-Mappy.debug.xcconfig"; sourceTree = "<group>"; };
 		A3B34F4D4440ACC2FD0D1018 /* Pods_Mappy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mappy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB7F5093237DF0E000D71C72 /* Mappy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mappy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,6 +109,7 @@
 				11E9CB782388131B00B476D2 /* GoogleService-Info.plist */,
 				EB7F5096237DF0E000D71C72 /* AppDelegate.swift */,
 				68147A942386C24500A203E5 /* DataHandler.swift */,
+				68379490238C1C0000E909D4 /* UserHandler.swift */,
 				EB7F5098237DF0E000D71C72 /* SceneDelegate.swift */,
 				EB7F509A237DF0E000D71C72 /* ViewController.swift */,
 				EB7F509C237DF0E000D71C72 /* Main.storyboard */,
@@ -239,6 +244,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB7F509B237DF0E000D71C72 /* ViewController.swift in Sources */,
+				68379491238C1C0000E909D4 /* UserHandler.swift in Sources */,
 				68147A952386C24500A203E5 /* DataHandler.swift in Sources */,
 				EB7F5097237DF0E000D71C72 /* AppDelegate.swift in Sources */,
 				11D29ECB237EDBDD00FCC890 /* User.swift in Sources */,
