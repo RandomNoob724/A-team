@@ -11,9 +11,12 @@ import MapKit
 import CoreLocation
 
 class EventTableViewController: UITableViewController, CLLocationManagerDelegate {
-
+    
+    @IBOutlet var eventTableView: UITableView!
+    
     var locationManager: CLLocationManager!
     var newCoordinates: CLLocationCoordinate2D!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,7 +28,7 @@ class EventTableViewController: UITableViewController, CLLocationManagerDelegate
             locationManager.requestAlwaysAuthorization()
             locationManager.startUpdatingLocation()
         }
-        // Do any additional setup after loading the view.
+        eventTableView.reloadData()
     }
     
     @IBAction func showCreateNewEventController(_ sender: Any)
@@ -47,14 +50,27 @@ class EventTableViewController: UITableViewController, CLLocationManagerDelegate
         let destination = segue.destination as? CreateNewEventViewController
         destination?.eventCoordinates = newCoordinates
     }
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        return EventHandler.instance.allEvents.count
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        if let cell = eventTableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as? EventTableViewCell
+        {
+            let event = EventHandler.instance.allEvents[indexPath.row]
+            cell.titleForEvent.text = event.title
+            cell.dateForEvent.text = event.date
+            cell.timeForEvent.text = event.time
+            
+            return cell
+        }
+        return UITableViewCell()
+    }
+
+
 
 }

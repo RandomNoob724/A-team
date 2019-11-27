@@ -169,13 +169,49 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="90" id="LSF-zY-b2X">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="eventCell" rowHeight="90" id="LSF-zY-b2X" customClass="EventTableViewCell" customModule="Mappy" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LSF-zY-b2X" id="dul-Ps-ODa">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VyW-Tn-o0y">
+                                            <rect key="frame" x="20" y="58" width="36" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRZ-XB-qvr">
+                                            <rect key="frame" x="356" y="58" width="38" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Z7-pN-rlA">
+                                            <rect key="frame" x="20" y="11" width="374" height="24"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="eRZ-XB-qvr" firstAttribute="bottom" secondItem="dul-Ps-ODa" secondAttribute="bottomMargin" id="HSX-DW-id6"/>
+                                        <constraint firstItem="3Z7-pN-rlA" firstAttribute="centerX" secondItem="dul-Ps-ODa" secondAttribute="centerX" id="WtO-Fg-hGh"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="3Z7-pN-rlA" secondAttribute="bottom" constant="44" id="X3c-iG-321"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="3Z7-pN-rlA" secondAttribute="trailing" id="en5-s3-mc5"/>
+                                        <constraint firstItem="VyW-Tn-o0y" firstAttribute="leading" secondItem="dul-Ps-ODa" secondAttribute="leadingMargin" id="g5I-az-n5r"/>
+                                        <constraint firstItem="eRZ-XB-qvr" firstAttribute="trailing" secondItem="dul-Ps-ODa" secondAttribute="trailingMargin" id="mIt-59-e3N"/>
+                                        <constraint firstItem="3Z7-pN-rlA" firstAttribute="top" secondItem="dul-Ps-ODa" secondAttribute="topMargin" id="nRq-MR-ZHV"/>
+                                        <constraint firstItem="3Z7-pN-rlA" firstAttribute="leading" secondItem="dul-Ps-ODa" secondAttribute="leadingMargin" id="nbZ-8q-Knx"/>
+                                        <constraint firstItem="VyW-Tn-o0y" firstAttribute="bottom" secondItem="dul-Ps-ODa" secondAttribute="bottomMargin" id="pxJ-Nj-CCQ"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="dateForEvent" destination="VyW-Tn-o0y" id="474-ax-vY6"/>
+                                    <outlet property="timeForEvent" destination="eRZ-XB-qvr" id="WsS-eU-eez"/>
+                                    <outlet property="titleForEvent" destination="3Z7-pN-rlA" id="nsq-aw-SW9"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -190,7 +226,11 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="AR7-53-wXu">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </refreshControl>
                     <connections>
+                        <outlet property="eventTableView" destination="Ygh-q1-u1l" id="nzq-Q6-uef"/>
                         <segue destination="cn1-bc-Tr9" kind="presentation" identifier="createNewEventSegue" id="kyq-no-uXi"/>
                     </connections>
                 </tableViewController>
