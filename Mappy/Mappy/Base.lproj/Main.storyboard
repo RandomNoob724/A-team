@@ -235,6 +235,7 @@
                     <connections>
                         <outlet property="eventTableView" destination="Ygh-q1-u1l" id="nzq-Q6-uef"/>
                         <segue destination="cn1-bc-Tr9" kind="presentation" identifier="createNewEventSegue" id="kyq-no-uXi"/>
+                        <segue destination="Fic-Oe-IJ3" kind="presentation" identifier="segueToDetailedEvent" id="5xz-b1-yF6"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HJk-cs-gJj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -416,5 +417,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="kyq-no-uXi"/>
+        <segue reference="5xz-b1-yF6"/>
     </inferredMetricsTieBreakers>
 </document>

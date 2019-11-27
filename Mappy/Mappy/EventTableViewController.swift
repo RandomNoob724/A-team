@@ -45,10 +45,22 @@ class EventTableViewController: UITableViewController, CLLocationManagerDelegate
 
     }
 
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath)
+    {
+        self.performSegue(withIdentifier: "segueToDetailedEvent", sender: EventHandler.instance.allEvents[indexPath.row])
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destination = segue.destination as? CreateNewEventViewController
-        destination?.eventCoordinates = newCoordinates
+        if segue.identifier == "createNewEventSegue"
+        {
+            let destination = segue.destination as? CreateNewEventViewController
+            destination?.eventCoordinates = newCoordinates
+        }
+        else if segue.identifier == "segueToDetailedEvent"
+        {
+            let destination = segue.destination as? DetailedEventViewController
+            destination?.selectedEvent = sender as? Event
+        }
     }
 
 
