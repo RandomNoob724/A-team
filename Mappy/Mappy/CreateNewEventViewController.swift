@@ -25,13 +25,6 @@ class CreateNewEventViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-//    func createNewEventOnPosition(eventCoordinates: CLLocationCoordinate2D) -> Event {
-//        guard let title = eventTitle.text else {return nil}
-//        guard let location = eventLocation.text else {return nil}
-//        let newEvent = Event(title: title, location: location, description: "Placeholder", coordinates: eventPosition)
-//        return newEvent
-//    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 

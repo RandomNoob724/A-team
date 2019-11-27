@@ -44,13 +44,31 @@ class MapViewController: UIViewController {
         let initialLocation = locationManager.location
         centerMapOnLocation(location: initialLocation ?? CLLocation(latitude: 57.78, longitude: 14.16)) // Sets the initial location to the users location if there is no user location the location is set to Jönköping, Sweden
         
-        DataHandler.instance.deleteEvent(id: "v8UZ7EK0TzcfzoLai3Xq")
         DataHandler.instance.readEvents(completion: { loadedEvents in
             EventHandler.instance.allEvents = loadedEvents
-            for i in EventHandler.instance.allEvents{
-                print(i.coordinate)
-            }
         })
+        //MARK: HUR MAN ANVÄNDER LOGIN O LOGOUT
+        //UserHandler.intance.createUser(email: "mrgabbeshi@gmail.com", password: "hej123")
+//
+//        print(UserHandler.instance.user as Any)
+//        if (UserHandler.instance.user != nil){
+//            print(UserHandler.instance.signOut())
+//            print("signout")
+//            print(UserHandler.instance.user as Any)
+//        }else{
+//            UserHandler.instance.login(withEmail: "mrgabbeshi@gmail.com", password: "hej123",((Error?)->(Void))?{error in
+//                if (error == nil){
+//                    //lyckades logga in byt view
+//                    UserHandler.instance.reloadUser()
+//                    print(UserHandler.instance.user as Any)
+//                } else {
+//                    //lyckades inte logga in skriv ut vad som gick fel
+//                    print(error.debugDescription)
+//                }
+//            })
+//        }
+        
+        
     }
     
     //MARK: - check user authentication for position
