@@ -30,8 +30,6 @@ class CreateNewEventViewController: UIViewController {
         guard let date = self.eventDate.text else {return}
         guard let time = self.eventTime.text else {return}
         guard let description = self.eventDescription.text else {return}
-        //detta är det ända bra sättet att göra på
-        eventCoordinates.longitude = eventCoordinates.longitude + 0.001
         let newEvent = Event(title: title, location: locationName, description: description, coordinates: eventCoordinates, date: date, time: time)
         DataHandler.instance.addEvent(event: newEvent)
         EventHandler.instance.insertNewEvent(newEvent: newEvent)

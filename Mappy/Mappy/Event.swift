@@ -73,7 +73,7 @@ class Event: NSObject, MKAnnotation{
     
 }
 
-//MARK: - Get Placemark
+//MARK: - Get placemark
 extension CLLocationManager {
     func getPlace(for location:CLLocation, completion: @escaping (CLPlacemark?) -> Void){
         let geocoder = CLGeocoder()

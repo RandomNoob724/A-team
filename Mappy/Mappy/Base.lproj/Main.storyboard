@@ -198,11 +198,11 @@
             </objects>
             <point key="canvasLocation" x="-207" y="-15"/>
         </scene>
-        <!--Item-->
+        <!--Event List-->
         <scene sceneID="Lh2-w9-CgM">
             <objects>
                 <navigationController id="C91-JD-jVN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" selectedImage="list.dash" catalog="system" id="LFD-jg-aHl"/>
+                    <tabBarItem key="tabBarItem" title="Event List" image="list.bullet" catalog="system" id="LFD-jg-aHl"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wwQ-u5-iBv">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -366,7 +366,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="list.dash" catalog="system" width="64" height="42"/>
+        <image name="list.bullet" catalog="system" width="64" height="44"/>
         <image name="location.fill" catalog="system" width="64" height="56"/>
         <image name="map" catalog="system" width="64" height="56"/>
         <image name="x.circle.fill" catalog="system" width="64" height="60"/>
