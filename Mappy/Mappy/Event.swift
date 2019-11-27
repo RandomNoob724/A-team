@@ -15,7 +15,9 @@ class Event: NSObject, MKAnnotation{
     
     var coordinate: CLLocationCoordinate2D
     var title: String?
-    var location: String
+    var locationName: String
+    var date: String
+    var time: String
     var eventDescription: String
     var eventId: String
     var date: String
@@ -25,7 +27,7 @@ class Event: NSObject, MKAnnotation{
     
     let geocoder = CLGeocoder()
     
-    init(title: String = "PlaceHolder", location: String = "No location name", description: String = "This is an event to celebrate the null point", coordinates: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 0, longitude: 0),eventId: String = "0",date: String = "no Date",time: String = "no time") {
+    init(title: String = "PlaceHolder", location: String = "No location name", description: String = "This is an event to celebrate the null point", coordinates: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 0, longitude: 0), eventId: String = "non id", date: String = "No set date", time: String = "No set time") {
         self.title = title
         self.eventDescription = description
         self.coordinate = coordinates
@@ -36,10 +38,6 @@ class Event: NSObject, MKAnnotation{
         super.init()
     }
     
-    var subtitle: String?{
-        return self.location
-    }
-    
     func setTitle(newTitle: String){
         self.title = newTitle
     }
@@ -48,20 +46,24 @@ class Event: NSObject, MKAnnotation{
         self.locationManager.getPlace(for: CLLocation(latitude: coordinates.latitude, longitude: coordinates.longitude)) { placemark in
             guard let placemark = placemark else { return }
             
-            if let country = placemark.country {
-                self.location = "\(placemark.country!)"
+            if placemark.country != nil {
+                self.locationName = "\(placemark.country!)"
             }
-            if let county = placemark.administrativeArea{
-                self.location = self.location + ", \(placemark.administrativeArea!)"
+            if placemark.administrativeArea != nil{
+                self.locationName += ", \(placemark.administrativeArea!)"
             }
-            if let city = placemark.locality {
-                self.location = self.location + ", \(placemark.locality!)"
+            if placemark.locality != nil {
+                self.locationName += ", \(placemark.locality!)"
             }
         }
     }
     
     func updateCoordinates(newCoordinates: CLLocationCoordinate2D){
         self.coordinate = newCoordinates
+    }
+    
+    var subtitle: String?{
+        return self.locationName
     }
     
     func mapItem() -> MKMapItem {
@@ -71,13 +73,14 @@ class Event: NSObject, MKAnnotation{
         mapItem.name = title
         return mapItem
     }
+    
 }
 
-//MARK: - Get Placemark
+//MARK: - Get placemark
 extension CLLocationManager {
     func getPlace(for location:CLLocation, completion: @escaping (CLPlacemark?) -> Void){
         let geocoder = CLGeocoder()
-        geocoder.reverseGeocodeLocation(location){ placemarks, error in
+        geocoder.reverseGeocodeLocation(location){ (placemarks, error) in
             guard error == nil else {
                 completion(nil)
                 return

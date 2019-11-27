@@ -31,7 +31,6 @@ class DetailedEventViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         detailedViewHeader.text = selectedEvent?.title
-        detailedViewImage.image = UIImage(systemName: "trash")
         detailedViewDescription.text = selectedEvent?.eventDescription
         // Do any additional setup after loading the view.
     }

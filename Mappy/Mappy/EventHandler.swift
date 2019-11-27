@@ -14,8 +14,8 @@ class EventHandler {
     
     var allEvents: [Event] = []
     
-    
     func insertNewEvent(newEvent: Event){
+        newEvent.setLocation(coordinates: newEvent.coordinate)
         allEvents.append(newEvent)
     }
     

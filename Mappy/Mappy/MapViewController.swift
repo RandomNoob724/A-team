@@ -32,6 +32,11 @@ class MapViewController: UIViewController {
     
     let locationManager = CLLocationManager()
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        mapView.addAnnotations(EventHandler.instance.allEvents)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //checks location services
@@ -40,12 +45,16 @@ class MapViewController: UIViewController {
         
         //starts updating the users location
         locationManager.startUpdatingLocation()
+        
         //Sets initial location to the users location
         let initialLocation = locationManager.location
-        centerMapOnLocation(location: initialLocation ?? CLLocation(latitude: 57.78, longitude: 14.16)) // Sets the initial location to the users location if there is no user location the location is set to Jönköping, Sweden
+        centerMapOnLocation(location: initialLocation ?? CLLocation(latitude: 57.78, longitude: 14.16))
         
+        //Fetches events from the firestore database and ads them into the eventhandler.instance.allEvents
+        //adds every annotation onto the map
         DataHandler.instance.readEvents(completion: { loadedEvents in
             EventHandler.instance.allEvents = loadedEvents
+            self.mapView.addAnnotations(EventHandler.instance.allEvents)
         })
         //MARK: HUR MAN ANVÄNDER LOGIN O LOGOUT
         //UserHandler.intance.createUser(email: "mrgabbeshi@gmail.com", password: "hej123")
@@ -71,7 +80,6 @@ class MapViewController: UIViewController {
         
     }
     
-    //MARK: - check user authentication for position
     //Method for calling the checkLocationAuthorization method
     func checkLocationServices(){
         if CLLocationManager.locationServicesEnabled(){
@@ -114,6 +122,7 @@ class MapViewController: UIViewController {
             destinationViewController?.selectedEvent = sender as? Event
         } else if segue.identifier == "CreateNewEvent" {
             let destinationViewController = segue.destination as? CreateNewEventViewController
+            destinationViewController?.mapView = mapView
             destinationViewController?.eventCoordinates = sender as? CLLocationCoordinate2D
         }
     }
@@ -121,6 +130,7 @@ class MapViewController: UIViewController {
 
 //Creates new mapViewDelegate
 extension MapViewController: MKMapViewDelegate {
+    
     //Used to make custom mapView annotations
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView?{
         guard let annotation = annotation as? Event else {return nil}
