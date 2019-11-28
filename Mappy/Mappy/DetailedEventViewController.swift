@@ -12,8 +12,9 @@ import MapKit
 class DetailedEventViewController: UIViewController {
     
     @IBOutlet weak var detailedViewHeader: UILabel!
-    @IBOutlet weak var detailedViewImage: UIImageView!
     @IBOutlet weak var detailedViewDescription: UILabel!
+    @IBOutlet weak var detailedViewDate: UILabel!
+    @IBOutlet weak var detailedViewTime: UILabel!
     
     var selectedEvent: Event?
     
@@ -32,6 +33,8 @@ class DetailedEventViewController: UIViewController {
         super.viewDidLoad()
         detailedViewHeader.text = selectedEvent?.title
         detailedViewDescription.text = selectedEvent?.eventDescription
+        detailedViewDate.text = selectedEvent?.date
+        detailedViewTime.text = selectedEvent?.time
         // Do any additional setup after loading the view.
     }
     

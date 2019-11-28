@@ -33,7 +33,7 @@ class EventTableViewController: UITableViewController, CLLocationManagerDelegate
     
     @IBAction func showCreateNewEventController(_ sender: Any)
     {
-        performSegue(withIdentifier: "createNewEventSegue", sender: self)
+        self.performSegue(withIdentifier: "createNewEventSegue", sender: self)
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
@@ -45,8 +45,7 @@ class EventTableViewController: UITableViewController, CLLocationManagerDelegate
 
     }
 
-    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath)
-    {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.performSegue(withIdentifier: "segueToDetailedEvent", sender: EventHandler.instance.allEvents[indexPath.row])
     }
     
