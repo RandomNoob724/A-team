@@ -16,7 +16,7 @@ class CreateNewEventViewController: UIViewController {
     @IBOutlet weak var eventTime: UITextField!
     @IBOutlet weak var eventDescription: UITextView!
     
-    @IBOutlet weak var eventLocation: UITextField!
+
     
     var eventCoordinates: CLLocationCoordinate2D!
     var datePicker: UIDatePicker?
@@ -26,11 +26,10 @@ class CreateNewEventViewController: UIViewController {
     
     @IBAction func createNewEventButtonClicked(_ sender: UIButton) {
         guard let title = eventTitle.text else {return}
-        guard let locationName = eventLocation.text else {return}
         guard let date = self.eventDate.text else {return}
         guard let time = self.eventTime.text else {return}
         guard let description = self.eventDescription.text else {return}
-        let newEvent = Event(title: title, location: locationName, description: description, coordinates: eventCoordinates, date: date, time: time)
+        let newEvent = Event(title: title, description: description, coordinates: eventCoordinates, date: date, time: time)
         DataHandler.instance.addEvent(event: newEvent)
         EventHandler.instance.insertNewEvent(newEvent: newEvent)
         if mapView != nil{
@@ -66,15 +65,19 @@ class CreateNewEventViewController: UIViewController {
         toolBar.isUserInteractionEnabled = true
         toolBar.sizeToFit()
         
-        //Add the toolbar to the time and datepickers
+        //Adds toolbar to all inputfields.
         self.eventDate.inputAccessoryView = toolBar
         self.eventTime.inputAccessoryView = toolBar
+        self.eventDescription.inputAccessoryView = toolBar
+        self.eventTitle.inputAccessoryView = toolBar
         
         //Set a black border to the description field
         self.eventDescription.layer.borderWidth = 1
         self.eventDescription.layer.borderColor = UIColor.black.cgColor
 
-        // Do any additional setup after loading the view.
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
     }
     
     //Handles the date format and puts the desired date in the date TextField.
@@ -108,14 +111,22 @@ class CreateNewEventViewController: UIViewController {
            })
        }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func keyboardWillShow(notification: Notification)
+    {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue
+        {
+            if self.view.frame.origin.y == 0
+            {
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
     }
-    */
 
+    @objc func keyboardWillHide(notification: Notification)
+    {
+        if self.view.frame.origin.y != 0
+        {
+            self.view.frame.origin.y = 0
+        }
+    }
 }
