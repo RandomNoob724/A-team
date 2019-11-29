@@ -16,6 +16,12 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var PasswordTextField: UITextField!
     @IBOutlet weak var ErrorLabel: UILabel!
     
+    
+    @IBAction func GoBackHome(_ sender: Any) {
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,7 +30,7 @@ class LogInViewController: UIViewController {
     
     @IBAction func LoginButtonPressed(_ sender: UIButton) {
         
-        UserHandler.instance.login(withEmail: "mrgabbeshigmail.com", password: "hej123", ((Error?)->(Void))?{error in
+        UserHandler.instance.login(withEmail: "mrgabbeshi@gmail.com", password: "hej123", ((Error?)->(Void))?{error in
             if(error == nil){
                 self.performSegue(withIdentifier: "loginToMap", sender: self)
             } else{
@@ -42,6 +48,11 @@ class LogInViewController: UIViewController {
                 }
             }
         })
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        view.endEditing(true)
+        super.touchesBegan(touches, with: event)
     }
 
     
