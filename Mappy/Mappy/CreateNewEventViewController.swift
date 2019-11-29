@@ -92,7 +92,7 @@ class CreateNewEventViewController: UIViewController {
        @objc func timeChanged(timePicker: UIDatePicker)
        {
            let timeFormatter = DateFormatter()
-           timeFormatter.dateFormat = "hh:mm"
+           timeFormatter.dateFormat = "HH:mm"
            self.eventTime.text = timeFormatter.string(from: timePicker.date)
        }
        
@@ -115,7 +115,7 @@ class CreateNewEventViewController: UIViewController {
     {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue
         {
-            if self.view.frame.origin.y == 0
+            if self.eventDescription.isFirstResponder
             {
                 self.view.frame.origin.y -= keyboardSize.height
             }

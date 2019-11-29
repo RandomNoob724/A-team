@@ -24,13 +24,27 @@ class LogInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let toolBar = UIToolbar()
+        toolBar.barStyle = .default
+        toolBar.isTranslucent = true
+        let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(onClickDoneButton))
+        toolBar.setItems([space, doneButton], animated: false)
+        toolBar.isUserInteractionEnabled = true
+        toolBar.sizeToFit()
+        
+        self.EmailTextField.inputAccessoryView = toolBar
+        self.PasswordTextField.inputAccessoryView = toolBar
 
         // Do any additional setup after loading the view.
     }
     
     @IBAction func LoginButtonPressed(_ sender: UIButton) {
-        
-        UserHandler.instance.login(withEmail: "mrgabbeshi@gmail.com", password: "hej123", ((Error?)->(Void))?{error in
+        //AVAILABLE ACCOUNTS
+        //email: mrgabbeshi@gmail.com   pw: hej123
+        //email: axeldalbard@hotmail.com   pw:hello123
+        UserHandler.instance.login(withEmail: EmailTextField.text!, password: PasswordTextField.text!, ((Error?)->(Void))?{error in
             if(error == nil){
                 self.performSegue(withIdentifier: "loginToMap", sender: self)
             } else{
@@ -44,7 +58,8 @@ class LogInViewController: UIViewController {
                 case 17011:
                     self.ErrorLabel.text = "User not found"
                 default:
-                    self.ErrorLabel.text = "Sum ting went wong"
+                    self.ErrorLabel.text = "Something went wrong"
+                    print(errorCode)
                 }
             }
         })
@@ -55,6 +70,10 @@ class LogInViewController: UIViewController {
         super.touchesBegan(touches, with: event)
     }
 
+    @objc func onClickDoneButton()
+    {
+        self.view.endEditing(true)
+    }
     
     /*
     // MARK: - Navigation
