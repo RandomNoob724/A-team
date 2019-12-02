@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,11 @@
 		11D29ECB237EDBDD00FCC890 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D29ECA237EDBDD00FCC890 /* User.swift */; };
 		11D29ED0237F05DC00FCC890 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11D29ECF237F05DC00FCC890 /* MapKit.framework */; };
 		11E9CB792388131B00B476D2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 11E9CB782388131B00B476D2 /* GoogleService-Info.plist */; };
+		50073A10239542C6002BC13E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50073A0F239542C6002BC13E /* HomeViewController.swift */; };
+		50073A1323954334002BC13E /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 50073A1223954334002BC13E /* Kingfisher */; };
+		50073A1523954434002BC13E /* BackgroundImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50073A1423954434002BC13E /* BackgroundImage.swift */; };
+		50073A1723954606002BC13E /* StorageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50073A1623954606002BC13E /* StorageHandler.swift */; };
+		50073A1923954781002BC13E /* ImageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50073A1823954781002BC13E /* ImageHandler.swift */; };
 		502DB60C239044E10076F649 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502DB60B239044E10076F649 /* LogInViewController.swift */; };
 		50535AE02391671200B436FE /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50535ADF2391671200B436FE /* SignUpViewController.swift */; };
 		68147A952386C24500A203E5 /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68147A942386C24500A203E5 /* DataHandler.swift */; };
@@ -41,6 +46,10 @@
 		11D29ECA237EDBDD00FCC890 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		11D29ECF237F05DC00FCC890 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		11E9CB782388131B00B476D2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		50073A0F239542C6002BC13E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		50073A1423954434002BC13E /* BackgroundImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImage.swift; sourceTree = "<group>"; };
+		50073A1623954606002BC13E /* StorageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageHandler.swift; sourceTree = "<group>"; };
+		50073A1823954781002BC13E /* ImageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHandler.swift; sourceTree = "<group>"; };
 		502DB60B239044E10076F649 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		50535ADF2391671200B436FE /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		68147A942386C24500A203E5 /* DataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHandler.swift; sourceTree = "<group>"; };
@@ -63,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50073A1323954334002BC13E /* Kingfisher in Frameworks */,
 				11D29ED0237F05DC00FCC890 /* MapKit.framework in Frameworks */,
 				7214C98B2E23980F6BB58BF7 /* Pods_Mappy.framework in Frameworks */,
 			);
@@ -112,8 +122,12 @@
 			children = (
 				11E9CB782388131B00B476D2 /* GoogleService-Info.plist */,
 				EB7F5096237DF0E000D71C72 /* AppDelegate.swift */,
+				50073A0F239542C6002BC13E /* HomeViewController.swift */,
+				50073A1423954434002BC13E /* BackgroundImage.swift */,
 				68147A942386C24500A203E5 /* DataHandler.swift */,
+				50073A1623954606002BC13E /* StorageHandler.swift */,
 				68379490238C1C0000E909D4 /* UserHandler.swift */,
+				50073A1823954781002BC13E /* ImageHandler.swift */,
 				EB7F5098237DF0E000D71C72 /* SceneDelegate.swift */,
 				EB7F509A237DF0E000D71C72 /* ViewController.swift */,
 				EB7F509C237DF0E000D71C72 /* Main.storyboard */,
@@ -152,6 +166,9 @@
 			dependencies = (
 			);
 			name = Mappy;
+			packageProductDependencies = (
+				50073A1223954334002BC13E /* Kingfisher */,
+			);
 			productName = Mappy;
 			productReference = EB7F5093237DF0E000D71C72 /* Mappy.app */;
 			productType = "com.apple.product-type.application";
@@ -180,6 +197,9 @@
 				Base,
 			);
 			mainGroup = EB7F508A237DF0E000D71C72;
+			packageReferences = (
+				50073A1123954334002BC13E /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = EB7F5094237DF0E000D71C72 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -252,17 +272,21 @@
 			files = (
 				EB7F509B237DF0E000D71C72 /* ViewController.swift in Sources */,
 				68379491238C1C0000E909D4 /* UserHandler.swift in Sources */,
+				50073A1723954606002BC13E /* StorageHandler.swift in Sources */,
 				68147A952386C24500A203E5 /* DataHandler.swift in Sources */,
 				EB7F5097237DF0E000D71C72 /* AppDelegate.swift in Sources */,
 				D9841C6D238EE58100AECED5 /* EventTableViewCell.swift in Sources */,
 				11D29ECB237EDBDD00FCC890 /* User.swift in Sources */,
 				11BF6DD723801FC000A73512 /* DetailedEventViewController.swift in Sources */,
 				11C80AE523819BBC00AC8626 /* EventTableViewController.swift in Sources */,
+				50073A1923954781002BC13E /* ImageHandler.swift in Sources */,
 				111A9C9323806B7B0004E5B1 /* EventHandler.swift in Sources */,
 				50535AE02391671200B436FE /* SignUpViewController.swift in Sources */,
 				111A9C9123804D930004E5B1 /* CreateNewEventViewController.swift in Sources */,
+				50073A10239542C6002BC13E /* HomeViewController.swift in Sources */,
 				502DB60C239044E10076F649 /* LogInViewController.swift in Sources */,
 				EB7F5099237DF0E000D71C72 /* SceneDelegate.swift in Sources */,
+				50073A1523954434002BC13E /* BackgroundImage.swift in Sources */,
 				11D29EC7237ED29300FCC890 /* MapViewController.swift in Sources */,
 				11D29EC9237ED84500FCC890 /* Event.swift in Sources */,
 			);
@@ -464,6 +488,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		50073A1123954334002BC13E /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.11.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		50073A1223954334002BC13E /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 50073A1123954334002BC13E /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EB7F508B237DF0E000D71C72 /* Project object */;
 }
