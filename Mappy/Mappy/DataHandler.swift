@@ -73,23 +73,4 @@ class DataHandler{
             }
         }
     }
-    
-    //MARK: BACKGROUND IMAGE
-    private var backgroundImage: BackgroundImage?
-    
-    //MARK: getBackgruondImageUrl
-    func getBackgroundImageUrl() -> URL? {
-        if let url = backgroundImage?.message {
-            return URL(string: url)
-        } else if let url = StorageHandler.getBackgroundImageUrl() {
-            return URL(string: url)
-        }
-        return nil
-    }
-    
-    //MARK: setBackgruondImage
-    func setBackgroundImage(_ backgroundImage: BackgroundImage) {
-        self.backgroundImage = backgroundImage
-        StorageHandler.setBackgroundImageUrl(backgroundImage.message)
-    }
 }

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Kingfisher
 
 class HomeViewController: UIViewController {
     
@@ -16,29 +15,34 @@ class HomeViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        if let url = DataHandler.instance.getBackgroundImageUrl() {
-            backgroundImageView.kf.setImage(with: url)
-        } else{
-            fetchBackgroundImage()
-        }
-
-        // Do any additional setup after loading the view.
+        setBackgroundImage()
     }
     
-    func fetchBackgroundImage() {
-        ImageHandler.fetchBackgroundImage { (success) in
-            if success, let url = DataHandler.instance.getBackgroundImageUrl() {
-                DispatchQueue.main.async {
-                    self.backgroundImageView.kf.setImage(with: url)
+    func setBackgroundImage(){
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
+
+        if let url = NSURL(string: "https://picsum.photos/414/896/?blur=2"){
+
+            let task = session.dataTask(with: url as URL, completionHandler: {data, response, error in
+
+                if let err = error {
+                    print("Error: \(err)")
+                    return
                 }
-            } else{
-                print("Error")
-            }
+
+                if let http = response as? HTTPURLResponse {
+                    if http.statusCode == 200 {
+                        let downloadedImage = UIImage(data: data!)
+                         DispatchQueue.main.async {
+                            self.backgroundImageView.image = downloadedImage
+                        }
+                    }
+                }
+           })
+            task.resume()
         }
     }
-    
-
     /*
     // MARK: - Navigation
 
