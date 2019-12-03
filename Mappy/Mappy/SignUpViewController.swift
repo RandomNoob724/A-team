@@ -45,7 +45,7 @@ class SignUpViewController: UIViewController {
     
     @IBAction func signupButtonPressed(_ sender: UIButton) {
         
-        UserHandler.instance.createUser(email: emailTextField.text!, password: passwordTextField.text!, ((Error?)->(Void))?{error in
+        UserHandler.instance.createUser(email: emailTextField.text!, password: passwordTextField.text!, firstName: firstNameTextField.text!, lastName: lastNameTextField.text!, ((Error?)->(Void))?{error in
             if(error == nil){
                 self.performSegue(withIdentifier: "signupToMap", sender: self)
             } else{

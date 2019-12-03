@@ -22,6 +22,14 @@ class MapViewController: UIViewController {
         }
     }
     
+    @IBAction func fetchEventButton(_ sender: Any) {
+        DataHandler.instance.readEvents(completion: { loadedEvents in
+            self.mapView.removeAnnotations(EventHandler.instance.allEvents)
+            EventHandler.instance.allEvents = loadedEvents
+            self.mapView.addAnnotations(EventHandler.instance.allEvents)
+        })
+    }
+    
     //MARK: - Center button clicked
     @IBAction func centerOnUserLocation(_ sender: Any) {
         let userPosition = mapView.userLocation.coordinate
@@ -65,19 +73,17 @@ class MapViewController: UIViewController {
 //            print("signout")
 //            print(UserHandler.instance.user as Any)
 //        }else{
-//            UserHandler.instance.login(withEmail: "mrgabbeshi@gmail.com", password: "hej123",((Error?)->(Void))?{error in
-//                if (error == nil){
-//                    //lyckades logga in byt view
-//                    UserHandler.instance.reloadUser()
-//                    print(UserHandler.instance.user as Any)
-//                } else {
-//                    //lyckades inte logga in skriv ut vad som gick fel
-//                    print(error.debugDescription)
-//                }
-//            })
+            UserHandler.instance.login(withEmail: "mrgabbeshi@gmail.com", password: "hej123",((Error?)->(Void))?{error in
+                if (error == nil){
+                    //lyckades logga in byt view
+                    
+                    print(UserHandler.instance.user as Any)
+                } else {
+                    //lyckades inte logga in skriv ut vad som gick fel
+                    print(error.debugDescription)
+                }
+            })
 //        }
-        
-        
     }
     
     //Method for calling the checkLocationAuthorization method

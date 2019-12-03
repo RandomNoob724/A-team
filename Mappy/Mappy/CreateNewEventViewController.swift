@@ -29,7 +29,8 @@ class CreateNewEventViewController: UIViewController {
         guard let date = self.eventDate.text else {return}
         guard let time = self.eventTime.text else {return}
         guard let description = self.eventDescription.text else {return}
-        let newEvent = Event(title: title, description: description, coordinates: eventCoordinates, date: date, time: time)
+        guard let userId = UserHandler.instance.user?.uid else {return}
+        let newEvent = Event(title: title, description: description, coordinates: eventCoordinates, date: date, time: time,userId: userId)
         DataHandler.instance.addEvent(event: newEvent)
         EventHandler.instance.insertNewEvent(newEvent: newEvent)
         if mapView != nil{
