@@ -303,17 +303,21 @@
         <!--Home-->
         <scene sceneID="8gL-eK-KdS">
             <objects>
-                <viewController id="GyR-WV-eGy" userLabel="Home" customClass="ViewController" customModule="Mappy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="GyR-WV-eGy" userLabel="Home" customClass="HomeViewController" customModule="Mappy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0Qy-hI-CHx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HYU-Jj-LKe">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mappy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DT7-KR-seP">
                                 <rect key="frame" x="124" y="122" width="166" height="58"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="42"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hk2-rI-qPL">
                                 <rect key="frame" x="85" y="491" width="245" height="52"/>
@@ -349,9 +353,21 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="HYU-Jj-LKe" firstAttribute="leading" secondItem="0Qy-hI-CHx" secondAttribute="leading" id="Jrz-9b-Vqk"/>
+                            <constraint firstAttribute="bottom" secondItem="HYU-Jj-LKe" secondAttribute="bottom" id="PvK-vj-mC4"/>
+                            <constraint firstItem="HYU-Jj-LKe" firstAttribute="top" secondItem="0Qy-hI-CHx" secondAttribute="top" id="prM-5t-xeT"/>
+                            <constraint firstAttribute="trailing" secondItem="HYU-Jj-LKe" secondAttribute="trailing" id="ti0-78-9rb"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="igI-Vk-kWj"/>
                     </view>
                     <navigationItem key="navigationItem" id="rUh-Po-ekw"/>
+                    <connections>
+                        <outlet property="backgroundImageView" destination="HYU-Jj-LKe" id="wV2-Er-oNR"/>
+                        <outlet property="loginButton" destination="o4m-hL-zvA" id="AQo-uY-Sav"/>
+                        <outlet property="signupButton" destination="Hk2-rI-qPL" id="ti3-Fk-lnF"/>
+                        <outlet property="titleLabel" destination="DT7-KR-seP" id="xcg-Xz-9ba"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AT7-QW-Aid" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -559,7 +575,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="pressedLogOutButton:" destination="aJQ-h9-99I" eventType="touchUpInside" id="ezu-PR-8QK"/>
-                                    <segue destination="Xvi-wG-GQX" kind="unwind" unwindAction="unwindToViewController:" id="cGP-3e-Lvx"/>
+                                    <segue destination="Xvi-wG-GQX" kind="unwind" unwindAction="unwindToHomeViewController:" id="vtf-KD-Eej"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4SF-qS-umF">
