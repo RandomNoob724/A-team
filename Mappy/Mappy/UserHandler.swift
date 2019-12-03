@@ -14,11 +14,15 @@ class UserHandler {
     static let instance = UserHandler()
     var user = Auth.auth().currentUser
     //MARK: CREATE USER
-    func createUser(email: String, password: String, _ callback: ((Error?) -> ())? = nil){
+    func createUser(email: String, password: String,firstName: String,lastName: String , _ callback: ((Error?) -> ())? = nil){
         Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
             if let e = error{
                 callback?(e)
                 return
+            } else {
+                if let user = Auth.auth().currentUser?.createProfileChangeRequest() {
+                    user.displayName = "\(firstName) \(lastName)"
+                }
             }
             callback?(nil)
         }
