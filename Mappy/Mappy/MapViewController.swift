@@ -22,6 +22,14 @@ class MapViewController: UIViewController {
         }
     }
     
+    @IBAction func fetchEventButton(_ sender: Any) {
+        DataHandler.instance.readEvents(completion: { loadedEvents in
+            self.mapView.removeAnnotations(EventHandler.instance.allEvents)
+            EventHandler.instance.allEvents = loadedEvents
+            self.mapView.addAnnotations(EventHandler.instance.allEvents)
+        })
+    }
+    
     //MARK: - Center button clicked
     @IBAction func centerOnUserLocation(_ sender: Any) {
         let userPosition = mapView.userLocation.coordinate
