@@ -255,7 +255,6 @@
 				68147A952386C24500A203E5 /* DataHandler.swift in Sources */,
 				EB7F5097237DF0E000D71C72 /* AppDelegate.swift in Sources */,
 				D9841C6D238EE58100AECED5 /* EventTableViewCell.swift in Sources */,
-				11D29ECB237EDBDD00FCC890 /* User.swift in Sources */,
 				11BF6DD723801FC000A73512 /* DetailedEventViewController.swift in Sources */,
 				7DDE0ACE2396C2E700018C81 /* settingsViewController.swift in Sources */,
 				11C80AE523819BBC00AC8626 /* EventTableViewController.swift in Sources */,
