@@ -21,6 +21,7 @@
 		68147A952386C24500A203E5 /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68147A942386C24500A203E5 /* DataHandler.swift */; };
 		68379491238C1C0000E909D4 /* UserHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68379490238C1C0000E909D4 /* UserHandler.swift */; };
 		7214C98B2E23980F6BB58BF7 /* Pods_Mappy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3B34F4D4440ACC2FD0D1018 /* Pods_Mappy.framework */; };
+		D92F74C92396A35100DE9328 /* MappyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92F74C82396A35100DE9328 /* MappyTests.swift */; };
 		D9841C6D238EE58100AECED5 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9841C6C238EE58100AECED5 /* EventTableViewCell.swift */; };
 		EB7F5097237DF0E000D71C72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F5096237DF0E000D71C72 /* AppDelegate.swift */; };
 		EB7F5099237DF0E000D71C72 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F5098237DF0E000D71C72 /* SceneDelegate.swift */; };
@@ -29,6 +30,16 @@
 		EB7F50A0237DF0E100D71C72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB7F509F237DF0E100D71C72 /* Assets.xcassets */; };
 		EB7F50A3237DF0E100D71C72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB7F50A1237DF0E100D71C72 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D92F74CB2396A35100DE9328 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EB7F508B237DF0E000D71C72 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EB7F5092237DF0E000D71C72;
+			remoteInfo = Mappy;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		01E62B1287197BF5EBA6BC99 /* Pods-Mappy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mappy.release.xcconfig"; path = "Target Support Files/Pods-Mappy/Pods-Mappy.release.xcconfig"; sourceTree = "<group>"; };
@@ -47,6 +58,9 @@
 		68379490238C1C0000E909D4 /* UserHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHandler.swift; sourceTree = "<group>"; };
 		A2C70CEE4EF2033F1A590EE3 /* Pods-Mappy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mappy.debug.xcconfig"; path = "Target Support Files/Pods-Mappy/Pods-Mappy.debug.xcconfig"; sourceTree = "<group>"; };
 		A3B34F4D4440ACC2FD0D1018 /* Pods_Mappy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mappy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D92F74C62396A35100DE9328 /* MappyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MappyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D92F74C82396A35100DE9328 /* MappyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MappyTests.swift; sourceTree = "<group>"; };
+		D92F74CA2396A35100DE9328 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9841C6C238EE58100AECED5 /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		EB7F5093237DF0E000D71C72 /* Mappy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mappy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB7F5096237DF0E000D71C72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +73,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		D92F74C32396A35100DE9328 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EB7F5090237DF0E000D71C72 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -89,10 +110,20 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		D92F74C72396A35100DE9328 /* MappyTests */ = {
+			isa = PBXGroup;
+			children = (
+				D92F74C82396A35100DE9328 /* MappyTests.swift */,
+				D92F74CA2396A35100DE9328 /* Info.plist */,
+			);
+			path = MappyTests;
+			sourceTree = "<group>";
+		};
 		EB7F508A237DF0E000D71C72 = {
 			isa = PBXGroup;
 			children = (
 				EB7F5095237DF0E000D71C72 /* Mappy */,
+				D92F74C72396A35100DE9328 /* MappyTests */,
 				EB7F5094237DF0E000D71C72 /* Products */,
 				11D29ECE237F05DC00FCC890 /* Frameworks */,
 				4C0F73026529C50419C26245 /* Pods */,
@@ -103,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				EB7F5093237DF0E000D71C72 /* Mappy.app */,
+				D92F74C62396A35100DE9328 /* MappyTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -137,6 +169,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		D92F74C52396A35100DE9328 /* MappyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D92F74CF2396A35100DE9328 /* Build configuration list for PBXNativeTarget "MappyTests" */;
+			buildPhases = (
+				D92F74C22396A35100DE9328 /* Sources */,
+				D92F74C32396A35100DE9328 /* Frameworks */,
+				D92F74C42396A35100DE9328 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D92F74CC2396A35100DE9328 /* PBXTargetDependency */,
+			);
+			name = MappyTests;
+			productName = MappyTests;
+			productReference = D92F74C62396A35100DE9328 /* MappyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		EB7F5092237DF0E000D71C72 /* Mappy */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = EB7F50A7237DF0E100D71C72 /* Build configuration list for PBXNativeTarget "Mappy" */;
@@ -162,10 +212,14 @@
 		EB7F508B237DF0E000D71C72 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1110;
+				LastSwiftUpdateCheck = 1120;
 				LastUpgradeCheck = 1110;
 				ORGANIZATIONNAME = "Emil Persson";
 				TargetAttributes = {
+					D92F74C52396A35100DE9328 = {
+						CreatedOnToolsVersion = 11.2.1;
+						TestTargetID = EB7F5092237DF0E000D71C72;
+					};
 					EB7F5092237DF0E000D71C72 = {
 						CreatedOnToolsVersion = 11.1;
 					};
@@ -185,11 +239,19 @@
 			projectRoot = "";
 			targets = (
 				EB7F5092237DF0E000D71C72 /* Mappy */,
+				D92F74C52396A35100DE9328 /* MappyTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		D92F74C42396A35100DE9328 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EB7F5091237DF0E000D71C72 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -246,6 +308,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		D92F74C22396A35100DE9328 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D92F74C92396A35100DE9328 /* MappyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EB7F508F237DF0E000D71C72 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -270,6 +340,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		D92F74CC2396A35100DE9328 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EB7F5092237DF0E000D71C72 /* Mappy */;
+			targetProxy = D92F74CB2396A35100DE9328 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		EB7F509C237DF0E000D71C72 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -290,6 +368,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		D92F74CD2396A35100DE9328 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = "${SRCROOT}/Pods/Firebase/CoreOnly/Sources";
+				INFOPLIST_FILE = MappyTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = JesperIsacson.MappyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mappy.app/Mappy";
+			};
+			name = Debug;
+		};
+		D92F74CE2396A35100DE9328 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = "${SRCROOT}/Pods/Firebase/CoreOnly/Sources";
+				INFOPLIST_FILE = MappyTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = JesperIsacson.MappyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mappy.app/Mappy";
+			};
+			name = Release;
+		};
 		EB7F50A5237DF0E100D71C72 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -445,6 +565,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		D92F74CF2396A35100DE9328 /* Build configuration list for PBXNativeTarget "MappyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D92F74CD2396A35100DE9328 /* Debug */,
+				D92F74CE2396A35100DE9328 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		EB7F508E237DF0E000D71C72 /* Build configuration list for PBXProject "Mappy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
