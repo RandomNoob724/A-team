@@ -13,7 +13,6 @@
 		11C80AE523819BBC00AC8626 /* EventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C80AE423819BBC00AC8626 /* EventTableViewController.swift */; };
 		11D29EC7237ED29300FCC890 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D29EC6237ED29300FCC890 /* MapViewController.swift */; };
 		11D29EC9237ED84500FCC890 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D29EC8237ED84500FCC890 /* Event.swift */; };
-		11D29ECB237EDBDD00FCC890 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D29ECA237EDBDD00FCC890 /* User.swift */; };
 		11D29ED0237F05DC00FCC890 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11D29ECF237F05DC00FCC890 /* MapKit.framework */; };
 		11E9CB792388131B00B476D2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 11E9CB782388131B00B476D2 /* GoogleService-Info.plist */; };
 		502DB60C239044E10076F649 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502DB60B239044E10076F649 /* LogInViewController.swift */; };
@@ -39,7 +38,6 @@
 		11C80AE423819BBC00AC8626 /* EventTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewController.swift; sourceTree = "<group>"; };
 		11D29EC6237ED29300FCC890 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		11D29EC8237ED84500FCC890 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
-		11D29ECA237EDBDD00FCC890 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		11D29ECF237F05DC00FCC890 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		11E9CB782388131B00B476D2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		502DB60B239044E10076F649 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
@@ -126,7 +124,6 @@
 				11C80AE423819BBC00AC8626 /* EventTableViewController.swift */,
 				11BF6DD623801FC000A73512 /* DetailedEventViewController.swift */,
 				11D29EC8237ED84500FCC890 /* Event.swift */,
-				11D29ECA237EDBDD00FCC890 /* User.swift */,
 				11D29EC6237ED29300FCC890 /* MapViewController.swift */,
 				111A9C9223806B7B0004E5B1 /* EventHandler.swift */,
 				EB7F509F237DF0E100D71C72 /* Assets.xcassets */,
