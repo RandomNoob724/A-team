@@ -13,19 +13,18 @@
 		11C80AE523819BBC00AC8626 /* EventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C80AE423819BBC00AC8626 /* EventTableViewController.swift */; };
 		11D29EC7237ED29300FCC890 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D29EC6237ED29300FCC890 /* MapViewController.swift */; };
 		11D29EC9237ED84500FCC890 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D29EC8237ED84500FCC890 /* Event.swift */; };
-		11D29ECB237EDBDD00FCC890 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D29ECA237EDBDD00FCC890 /* User.swift */; };
 		11D29ED0237F05DC00FCC890 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11D29ECF237F05DC00FCC890 /* MapKit.framework */; };
 		11E9CB792388131B00B476D2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 11E9CB782388131B00B476D2 /* GoogleService-Info.plist */; };
+		50073A10239542C6002BC13E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50073A0F239542C6002BC13E /* HomeViewController.swift */; };
 		502DB60C239044E10076F649 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502DB60B239044E10076F649 /* LogInViewController.swift */; };
 		50535AE02391671200B436FE /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50535ADF2391671200B436FE /* SignUpViewController.swift */; };
 		68147A952386C24500A203E5 /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68147A942386C24500A203E5 /* DataHandler.swift */; };
 		68379491238C1C0000E909D4 /* UserHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68379490238C1C0000E909D4 /* UserHandler.swift */; };
 		7214C98B2E23980F6BB58BF7 /* Pods_Mappy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3B34F4D4440ACC2FD0D1018 /* Pods_Mappy.framework */; };
-		D92F74C92396A35100DE9328 /* MappyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92F74C82396A35100DE9328 /* MappyTests.swift */; };
+		7DDE0ACE2396C2E700018C81 /* settingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDE0ACD2396C2E700018C81 /* settingsViewController.swift */; };
 		D9841C6D238EE58100AECED5 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9841C6C238EE58100AECED5 /* EventTableViewCell.swift */; };
 		EB7F5097237DF0E000D71C72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F5096237DF0E000D71C72 /* AppDelegate.swift */; };
 		EB7F5099237DF0E000D71C72 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F5098237DF0E000D71C72 /* SceneDelegate.swift */; };
-		EB7F509B237DF0E000D71C72 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F509A237DF0E000D71C72 /* ViewController.swift */; };
 		EB7F509E237DF0E000D71C72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB7F509C237DF0E000D71C72 /* Main.storyboard */; };
 		EB7F50A0237DF0E100D71C72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB7F509F237DF0E100D71C72 /* Assets.xcassets */; };
 		EB7F50A3237DF0E100D71C72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB7F50A1237DF0E100D71C72 /* LaunchScreen.storyboard */; };
@@ -49,13 +48,14 @@
 		11C80AE423819BBC00AC8626 /* EventTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewController.swift; sourceTree = "<group>"; };
 		11D29EC6237ED29300FCC890 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		11D29EC8237ED84500FCC890 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
-		11D29ECA237EDBDD00FCC890 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		11D29ECF237F05DC00FCC890 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		11E9CB782388131B00B476D2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		50073A0F239542C6002BC13E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		502DB60B239044E10076F649 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		50535ADF2391671200B436FE /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		68147A942386C24500A203E5 /* DataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHandler.swift; sourceTree = "<group>"; };
 		68379490238C1C0000E909D4 /* UserHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHandler.swift; sourceTree = "<group>"; };
+		7DDE0ACD2396C2E700018C81 /* settingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingsViewController.swift; sourceTree = "<group>"; };
 		A2C70CEE4EF2033F1A590EE3 /* Pods-Mappy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mappy.debug.xcconfig"; path = "Target Support Files/Pods-Mappy/Pods-Mappy.debug.xcconfig"; sourceTree = "<group>"; };
 		A3B34F4D4440ACC2FD0D1018 /* Pods_Mappy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mappy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D92F74C62396A35100DE9328 /* MappyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MappyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,7 +65,6 @@
 		EB7F5093237DF0E000D71C72 /* Mappy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mappy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB7F5096237DF0E000D71C72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB7F5098237DF0E000D71C72 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		EB7F509A237DF0E000D71C72 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		EB7F509D237DF0E000D71C72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EB7F509F237DF0E100D71C72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB7F50A2237DF0E100D71C72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -144,18 +143,18 @@
 			children = (
 				11E9CB782388131B00B476D2 /* GoogleService-Info.plist */,
 				EB7F5096237DF0E000D71C72 /* AppDelegate.swift */,
+				50073A0F239542C6002BC13E /* HomeViewController.swift */,
 				68147A942386C24500A203E5 /* DataHandler.swift */,
 				68379490238C1C0000E909D4 /* UserHandler.swift */,
 				EB7F5098237DF0E000D71C72 /* SceneDelegate.swift */,
-				EB7F509A237DF0E000D71C72 /* ViewController.swift */,
 				EB7F509C237DF0E000D71C72 /* Main.storyboard */,
+				7DDE0ACD2396C2E700018C81 /* settingsViewController.swift */,
 				50535ADF2391671200B436FE /* SignUpViewController.swift */,
 				502DB60B239044E10076F649 /* LogInViewController.swift */,
 				111A9C9023804D930004E5B1 /* CreateNewEventViewController.swift */,
 				11C80AE423819BBC00AC8626 /* EventTableViewController.swift */,
 				11BF6DD623801FC000A73512 /* DetailedEventViewController.swift */,
 				11D29EC8237ED84500FCC890 /* Event.swift */,
-				11D29ECA237EDBDD00FCC890 /* User.swift */,
 				11D29EC6237ED29300FCC890 /* MapViewController.swift */,
 				111A9C9223806B7B0004E5B1 /* EventHandler.swift */,
 				EB7F509F237DF0E100D71C72 /* Assets.xcassets */,
@@ -202,6 +201,8 @@
 			dependencies = (
 			);
 			name = Mappy;
+			packageProductDependencies = (
+			);
 			productName = Mappy;
 			productReference = EB7F5093237DF0E000D71C72 /* Mappy.app */;
 			productType = "com.apple.product-type.application";
@@ -234,6 +235,8 @@
 				Base,
 			);
 			mainGroup = EB7F508A237DF0E000D71C72;
+			packageReferences = (
+			);
 			productRefGroup = EB7F5094237DF0E000D71C72 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -320,17 +323,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB7F509B237DF0E000D71C72 /* ViewController.swift in Sources */,
 				68379491238C1C0000E909D4 /* UserHandler.swift in Sources */,
 				68147A952386C24500A203E5 /* DataHandler.swift in Sources */,
 				EB7F5097237DF0E000D71C72 /* AppDelegate.swift in Sources */,
 				D9841C6D238EE58100AECED5 /* EventTableViewCell.swift in Sources */,
-				11D29ECB237EDBDD00FCC890 /* User.swift in Sources */,
 				11BF6DD723801FC000A73512 /* DetailedEventViewController.swift in Sources */,
+				7DDE0ACE2396C2E700018C81 /* settingsViewController.swift in Sources */,
 				11C80AE523819BBC00AC8626 /* EventTableViewController.swift in Sources */,
 				111A9C9323806B7B0004E5B1 /* EventHandler.swift in Sources */,
 				50535AE02391671200B436FE /* SignUpViewController.swift in Sources */,
 				111A9C9123804D930004E5B1 /* CreateNewEventViewController.swift in Sources */,
+				50073A10239542C6002BC13E /* HomeViewController.swift in Sources */,
 				502DB60C239044E10076F649 /* LogInViewController.swift in Sources */,
 				EB7F5099237DF0E000D71C72 /* SceneDelegate.swift in Sources */,
 				11D29EC7237ED29300FCC890 /* MapViewController.swift in Sources */,

@@ -23,7 +23,8 @@ class DataHandler{
             "latitude"          : event.coordinate.latitude,
             "longitude"         : event.coordinate.longitude,
             "date"              : event.date,
-            "time"              : event.time
+            "time"              : event.time,
+            "owner"             : event.owner
         ]) { err in
             if let err = err {
                 print("error adding to database: \(err)")
@@ -44,16 +45,17 @@ class DataHandler{
             } else {
                 for document in querySnapshot!.documents {
                     let eventObj = Event(
-                        title: document.data()["title"] as? String ?? "title",
-                        description: document.data()["eventDescription"] as? String ?? "eventDescription",
-                        coordinates: CLLocationCoordinate2D(
-                            latitude: document.data()["latitude"] as? CLLocationDegrees ?? CLLocationDegrees(signOf: 0.0,magnitudeOf: 0.0),
-                            longitude: document.data()["longitude"] as? CLLocationDegrees ?? CLLocationDegrees(signOf: 0.0,magnitudeOf: 0.0)
+                        title           : document.data()["title"] as? String ?? "title",
+                        description     : document.data()["eventDescription"] as? String ?? "eventDescription",
+                        coordinates     : CLLocationCoordinate2D(
+                            latitude    : document.data()["latitude"] as? CLLocationDegrees ?? CLLocationDegrees(signOf: 0.0,magnitudeOf: 0.0),
+                            longitude   : document.data()["longitude"] as? CLLocationDegrees ?? CLLocationDegrees(signOf: 0.0,magnitudeOf: 0.0)
                         
                         ),
-                        eventId : document.documentID,
-                        date : document.data()["date"] as? String ?? "no set date",
-                        time : document.data()["time"] as? String ?? "no set time"
+                        eventId         : document.documentID,
+                        date            : document.data()["date"] as? String ?? "no set date",
+                        time            : document.data()["time"] as? String ?? "no set time",
+                        owner           : document.data()["owner"] as? String ?? "no owner"
                     )
                     eventObj.setLocation(coordinates: eventObj.coordinate)
                     listOfEvents.append(eventObj)
