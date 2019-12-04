@@ -142,6 +142,13 @@
                                     <action selector="getThereClicked:" destination="Fic-Oe-IJ3" eventType="touchUpInside" id="7eX-Az-tsp"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HV4-nf-mC2">
+                                <rect key="frame" x="186" y="105" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -167,6 +174,7 @@
                         <outlet property="DetailedViewHeader" destination="Bnd-OB-cCb" id="XAc-0d-zxM"/>
                         <outlet property="detailedViewDate" destination="Z76-uh-PGv" id="vq9-Ja-mji"/>
                         <outlet property="detailedViewDescription" destination="Ojx-7h-9YH" id="7eG-Zf-CEI"/>
+                        <outlet property="detailedViewOwner" destination="HV4-nf-mC2" id="C8c-CG-sif"/>
                         <outlet property="detailedViewTime" destination="P9h-GZ-gdu" id="MB8-dB-Ml4"/>
                     </connections>
                 </viewController>

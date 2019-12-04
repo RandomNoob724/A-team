@@ -24,7 +24,7 @@ class DataHandler{
             "longitude"         : event.coordinate.longitude,
             "date"              : event.date,
             "time"              : event.time,
-            "userId"            : event.userId
+            "owner"             : event.owner
         ]) { err in
             if let err = err {
                 print("error adding to database: \(err)")
@@ -55,7 +55,7 @@ class DataHandler{
                         eventId         : document.documentID,
                         date            : document.data()["date"] as? String ?? "no set date",
                         time            : document.data()["time"] as? String ?? "no set time",
-                        userId          : document.data()["userId"] as? String ?? "no Id"
+                        owner           : document.data()["owner"] as? String ?? "no owner"
                     )
                     eventObj.setLocation(coordinates: eventObj.coordinate)
                     listOfEvents.append(eventObj)

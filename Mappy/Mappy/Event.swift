@@ -20,13 +20,13 @@ class Event: NSObject, MKAnnotation{
     var time: String
     var eventDescription: String
     var eventId: String
-    var userId: String
+    var owner: String
     
     private let locationManager = CLLocationManager()
     
     let geocoder = CLGeocoder()
     
-    init(title: String = "PlaceHolder", location: String = "No location name", description: String = "This is an event to celebrate the null point", coordinates: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 0, longitude: 0), eventId: String = "non id", date: String = "No set date", time: String = "No set time", userId: String!) {
+    init(title: String = "PlaceHolder", location: String = "No location name", description: String = "This is an event to celebrate the null point", coordinates: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 0, longitude: 0), eventId: String = "non id", date: String = "No set date", time: String = "No set time", owner: String!) {
         self.title = title
         self.eventDescription = description
         self.coordinate = coordinates
@@ -34,7 +34,7 @@ class Event: NSObject, MKAnnotation{
         self.eventId = eventId
         self.date = date
         self.time = time
-        self.userId = userId
+        self.owner = owner
         super.init()
     }
     
