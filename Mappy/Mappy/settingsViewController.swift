@@ -8,7 +8,7 @@
 
 import UIKit
 
-class settingsViewController: UIViewController {
+class SettingsViewController: UIViewController {
 
     @IBOutlet weak var errorLabel: UILabel!
     override func viewDidLoad() {
