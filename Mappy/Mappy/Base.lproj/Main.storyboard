@@ -377,6 +377,7 @@
                         <outlet property="loginButton" destination="o4m-hL-zvA" id="AQo-uY-Sav"/>
                         <outlet property="signupButton" destination="Hk2-rI-qPL" id="ti3-Fk-lnF"/>
                         <outlet property="titleLabel" destination="DT7-KR-seP" id="xcg-Xz-9ba"/>
+                        <segue destination="dnN-8F-tYD" kind="showDetail" identifier="fromHomeToMap" id="n0K-w7-hAx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AT7-QW-Aid" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -888,8 +889,8 @@
         <image name="map" catalog="system" width="64" height="56"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kyq-no-uXi"/>
+        <segue reference="07j-2k-fKb"/>
         <segue reference="d37-Pb-3Dv"/>
-        <segue reference="5xz-b1-yF6"/>
+        <segue reference="YDd-lA-tzd"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -18,6 +18,9 @@ class HomeViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        if (UserHandler.instance.user != nil) {
+            performSegue(withIdentifier: "fromHomeToMap", sender: animated)
+        }
         DataHandler.instance.setScreenWidth(width: Int(self.view.frame.width))
         DataHandler.instance.setScreenHeigth(heigth: Int(self.view.frame.height))
         if let url = DataHandler.instance.getImageUrl() {
