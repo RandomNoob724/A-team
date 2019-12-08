@@ -541,7 +541,7 @@
         <!--Settings-->
         <scene sceneID="0j8-v8-LbU">
             <objects>
-                <viewController id="aJQ-h9-99I" customClass="settingsViewController" customModule="Mappy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="aJQ-h9-99I" customClass="SettingsViewController" customModule="Mappy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kfu-ye-aUI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
