@@ -24,6 +24,8 @@ class CreateNewEventViewController: UIViewController {
     
     var mapView: MKMapView!
     
+    
+    //MARK: - Create Button clicked.
     @IBAction func createNewEventButtonClicked(_ sender: UIButton) {
         guard let title = eventTitle.text else {return}
         guard let date = self.eventDate.text else {return}
@@ -43,7 +45,8 @@ class CreateNewEventViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        //MARK: - TextField and keyboard setup.
+        //Setup the date textfield as a datepicker.
         self.datePicker = UIDatePicker()
         self.datePicker?.datePickerMode = .date
         self.datePicker?.addTarget(self, action: #selector(dateChanged(datePicker:)), for: .valueChanged)
@@ -81,37 +84,40 @@ class CreateNewEventViewController: UIViewController {
         
     }
     
+    
+    //MARK: - Textfield and keyboard methods
     //Handles the date format and puts the desired date in the date TextField.
-       @objc func dateChanged(datePicker: UIDatePicker)
-       {
-           let dateFormatter = DateFormatter()
-           dateFormatter.dateFormat = "dd/MMM-yyyy"
-           self.eventDate.text = dateFormatter.string(from: datePicker.date)
-       }
+    @objc func dateChanged(datePicker: UIDatePicker)
+    {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MMM-yyyy"
+        self.eventDate.text = dateFormatter.string(from: datePicker.date)
+    }
+      
+    //Handles the time format and puts the desired time in the time TextField.
+    @objc func timeChanged(timePicker: UIDatePicker)
+    {
+        let timeFormatter = DateFormatter()
+        timeFormatter.dateFormat = "HH:mm"
+        self.eventTime.text = timeFormatter.string(from: timePicker.date)
+    }
        
-       //Handles the time format and puts the desired time in the time TextField.
-       @objc func timeChanged(timePicker: UIDatePicker)
-       {
-           let timeFormatter = DateFormatter()
-           timeFormatter.dateFormat = "HH:mm"
-           self.eventTime.text = timeFormatter.string(from: timePicker.date)
-       }
-       
-       //Handles the toolbar button (Done) click so the UIDatePicker is dismissed.
-       @objc func onClickDoneButton()
-       {
-           self.view.endEditing(true)
-       }
-       
-       //Handles the button (Back) click so the UIViewController is dismissed.
-       @IBAction func dismissViewController(_ sender: Any)
-       {
-           self.dismiss(animated: true, completion:
-           {
-               self.presentingViewController?.dismiss(animated: true, completion: nil)
-           })
-       }
+    //Handles the toolbar button (Done) click so the UIDatePicker is dismissed.
+    @objc func onClickDoneButton()
+    {
+        self.view.endEditing(true)
+    }
+    
+    //Handles the button (Back) click so the UIViewController is dismissed.
+    @IBAction func dismissViewController(_ sender: Any)
+    {
+        self.dismiss(animated: true, completion:
+        {
+            self.presentingViewController?.dismiss(animated: true, completion: nil)
+        })
+    }
 
+    //The whole view gets pushed up equal to the keyboard height when the description text view is selected.
     @objc func keyboardWillShow(notification: Notification)
     {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue
@@ -123,6 +129,7 @@ class CreateNewEventViewController: UIViewController {
         }
     }
 
+    //Pushes down the view when the keyboard is dismissed
     @objc func keyboardWillHide(notification: Notification)
     {
         if self.view.frame.origin.y != 0

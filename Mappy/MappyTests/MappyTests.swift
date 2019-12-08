@@ -12,7 +12,7 @@ import CoreLocation
 
 class MappyTests: XCTestCase {
 
-    
+    //MARK: - Tests
     func testCreateEvent()
     {
         let newEvent = Event(title: "SexKreation", description: "Shit's lit")

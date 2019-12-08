@@ -30,12 +30,13 @@ class EventTableViewController: UITableViewController, CLLocationManagerDelegate
         }
         eventTableView.reloadData()
     }
-    
+    //Segue to Create new Event
     @IBAction func showCreateNewEventController(_ sender: Any)
     {
         self.performSegue(withIdentifier: "createNewEventSegue", sender: self)
     }
     
+    //Finds users location
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
     {
 
@@ -45,10 +46,13 @@ class EventTableViewController: UITableViewController, CLLocationManagerDelegate
 
     }
 
+    
+    //Segue to detailed event controller
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.performSegue(withIdentifier: "segueToDetailedEvent", sender: EventHandler.instance.allEvents[indexPath.row])
     }
     
+    //Passes necessary data destination
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "createNewEventSegue"
         {
@@ -62,12 +66,13 @@ class EventTableViewController: UITableViewController, CLLocationManagerDelegate
         }
     }
 
-
+    //Counts amount of cells in tableview
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         return EventHandler.instance.allEvents.count
     }
     
+    //Sets the cells up with title, date and time
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         if let cell = eventTableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as? EventTableViewCell
@@ -82,6 +87,7 @@ class EventTableViewController: UITableViewController, CLLocationManagerDelegate
         return UITableViewCell()
     }
 
+    //Refresh tableview
     @IBAction func refreshTableViewController(_ sender: UIRefreshControl)
     {
         DataHandler.instance.readEvents(completion: {updatedEvents in
