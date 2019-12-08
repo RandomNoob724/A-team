@@ -13,9 +13,9 @@ class RestHandler {
     
     //MARK: FETCH IMAGE
     static func fetchImage(completion: ((Bool) -> Void)?) {
-        // This is the API: https://picsum.photos/id/0/info
+        // This is the API: https://picsum.photos/
         
-        guard let url = URL(string: "https://picsum.photos/id/\(Int.random(in: 0..<1000))/info") else {
+        guard let url = URL(string: "https://picsum.photos/id/\(Int.random(in: 0..<85))/info") else {
             // If the url object is nil we'll send false through the callback and end the function.
             completion?(false)
             return
