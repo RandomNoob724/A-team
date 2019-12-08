@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class HomeViewController: UIViewController {
     
@@ -17,9 +18,27 @@ class HomeViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        setBackgroundImage()
+        DataHandler.instance.setScreenWidth(width: Int(self.view.frame.width))
+        DataHandler.instance.setScreenHeigth(heigth: Int(self.view.frame.height))
+        if let url = DataHandler.instance.getImageUrl() {
+            backgroundImageView.kf.setImage(with: url)
+        } else {
+            fetchBackgroundImage()
+        }
         animateHomePage()
-        
+    }
+    
+    func fetchBackgroundImage() {
+        RestHandler.fetchImage(completion: { (success) in
+            if success, let url = DataHandler.instance.getImageUrl(){
+                DispatchQueue.main.async {
+                    self.backgroundImageView.kf.setImage(with: url)
+                }
+            }
+            else {
+                print("Error!")
+            }
+        })
     }
     
     func animateHomePage(){
@@ -33,47 +52,10 @@ class HomeViewController: UIViewController {
             self.signupButton.center.x = self.view.frame.width / 2
         }, completion: nil)
     }
-    func setBackgroundImage(){
-        let config = URLSessionConfiguration.default
-        let session = URLSession(configuration: config)
-        let width = Int(self.view.frame.width)
-        let height = Int(self.view.frame.height)
-        
-        if let url = NSURL(string: "https://picsum.photos/\(width)/\(height)/?blur=2"){
-
-            let task = session.dataTask(with: url as URL, completionHandler: {data, response, error in
-
-                if let err = error {
-                    print("Error: \(err)")
-                    return
-                }
-
-                if let http = response as? HTTPURLResponse {
-                    if http.statusCode == 200 {
-                        let downloadedImage = UIImage(data: data!)
-                         DispatchQueue.main.async {
-                            self.backgroundImageView.image = downloadedImage
-                        }
-                    }
-                }
-           })
-            task.resume()
-        }
-    }
     
     @IBAction func unwindToHomeViewController(_ unwindSegue: UIStoryboardSegue) {
         let sourceViewController = unwindSegue.source
         // Use data from the view controller which initiated the unwind segue
         animateHomePage()
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

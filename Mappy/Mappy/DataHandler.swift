@@ -14,6 +14,33 @@ class DataHandler{
     
     static let instance = DataHandler()
     let db = Firestore.firestore()
+    
+    private var screenWidth: Int = 1000
+    private var screenHeigth: Int = 1000
+    
+    private var homepageBackgroundImage: BackgroundImage?
+    
+    func setScreenWidth(width: Int){
+        self.screenWidth = width
+    }
+    
+    func setScreenHeigth(heigth: Int){
+        self.screenHeigth = heigth
+    }
+    
+    func setBackgroundImage(backgroundImage: BackgroundImage){
+        homepageBackgroundImage = backgroundImage
+        homepageBackgroundImage!.download_url = "https://picsum.photos/id/\(homepageBackgroundImage!.id)/\(screenWidth)/\(screenHeigth)"
+        print(homepageBackgroundImage?.download_url)
+    }
+    
+    func getImageUrl() -> URL?{
+        if let url = homepageBackgroundImage?.download_url {
+            return URL(string: url)
+        }
+        return nil
+    }
+    
     //MARK: ADD EVENT
     func addEvent(event: Event){
         var ref: DocumentReference? = nil

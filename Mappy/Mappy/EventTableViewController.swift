@@ -84,8 +84,11 @@ class EventTableViewController: UITableViewController, CLLocationManagerDelegate
 
     @IBAction func refreshTableViewController(_ sender: UIRefreshControl)
     {
+        DataHandler.instance.readEvents(completion: {updatedEvents in
+            EventHandler.instance.allEvents = updatedEvents
+            sender.endRefreshing()
+        })
         tableView.reloadData()
-        sender.endRefreshing()
     }
     
 

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -28,6 +28,9 @@
 		EB7F509E237DF0E000D71C72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB7F509C237DF0E000D71C72 /* Main.storyboard */; };
 		EB7F50A0237DF0E100D71C72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB7F509F237DF0E100D71C72 /* Assets.xcassets */; };
 		EB7F50A3237DF0E100D71C72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB7F50A1237DF0E100D71C72 /* LaunchScreen.storyboard */; };
+		EBB81AA8239D0A58002C0663 /* RestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB81AA7239D0A58002C0663 /* RestHandler.swift */; };
+		EBB81AAA239D10FE002C0663 /* BackgroundImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB81AA9239D10FE002C0663 /* BackgroundImage.swift */; };
+		EBB81AAD239D1DBC002C0663 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = EBB81AAC239D1DBC002C0663 /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +72,8 @@
 		EB7F509F237DF0E100D71C72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB7F50A2237DF0E100D71C72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB7F50A4237DF0E100D71C72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EBB81AA7239D0A58002C0663 /* RestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestHandler.swift; sourceTree = "<group>"; };
+		EBB81AA9239D10FE002C0663 /* BackgroundImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBB81AAD239D1DBC002C0663 /* Kingfisher in Frameworks */,
 				11D29ED0237F05DC00FCC890 /* MapKit.framework in Frameworks */,
 				7214C98B2E23980F6BB58BF7 /* Pods_Mappy.framework in Frameworks */,
 			);
@@ -144,6 +150,8 @@
 				11E9CB782388131B00B476D2 /* GoogleService-Info.plist */,
 				EB7F5096237DF0E000D71C72 /* AppDelegate.swift */,
 				50073A0F239542C6002BC13E /* HomeViewController.swift */,
+				EBB81AA7239D0A58002C0663 /* RestHandler.swift */,
+				EBB81AA9239D10FE002C0663 /* BackgroundImage.swift */,
 				68147A942386C24500A203E5 /* DataHandler.swift */,
 				68379490238C1C0000E909D4 /* UserHandler.swift */,
 				EB7F5098237DF0E000D71C72 /* SceneDelegate.swift */,
@@ -202,6 +210,7 @@
 			);
 			name = Mappy;
 			packageProductDependencies = (
+				EBB81AAC239D1DBC002C0663 /* Kingfisher */,
 			);
 			productName = Mappy;
 			productReference = EB7F5093237DF0E000D71C72 /* Mappy.app */;
@@ -236,6 +245,7 @@
 			);
 			mainGroup = EB7F508A237DF0E000D71C72;
 			packageReferences = (
+				EBB81AAB239D1DBC002C0663 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = EB7F5094237DF0E000D71C72 /* Products */;
 			projectDirPath = "";
@@ -315,7 +325,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D92F74C92396A35100DE9328 /* MappyTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,11 +340,13 @@
 				7DDE0ACE2396C2E700018C81 /* settingsViewController.swift in Sources */,
 				11C80AE523819BBC00AC8626 /* EventTableViewController.swift in Sources */,
 				111A9C9323806B7B0004E5B1 /* EventHandler.swift in Sources */,
+				EBB81AA8239D0A58002C0663 /* RestHandler.swift in Sources */,
 				50535AE02391671200B436FE /* SignUpViewController.swift in Sources */,
 				111A9C9123804D930004E5B1 /* CreateNewEventViewController.swift in Sources */,
 				50073A10239542C6002BC13E /* HomeViewController.swift in Sources */,
 				502DB60C239044E10076F649 /* LogInViewController.swift in Sources */,
 				EB7F5099237DF0E000D71C72 /* SceneDelegate.swift in Sources */,
+				EBB81AAA239D10FE002C0663 /* BackgroundImage.swift in Sources */,
 				11D29EC7237ED29300FCC890 /* MapViewController.swift in Sources */,
 				11D29EC9237ED84500FCC890 /* Event.swift in Sources */,
 			);
@@ -533,13 +544,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = K7S5E933Y5;
+				DEVELOPMENT_TEAM = 3MJ86UTTKC;
 				INFOPLIST_FILE = Mappy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = gabriel.hildingsson.Mappy;
+				PRODUCT_BUNDLE_IDENTIFIER = emil.persson.Mappy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -558,7 +569,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = gabriel.hildingsson.Mappy;
+				PRODUCT_BUNDLE_IDENTIFIER = emil.persson.Mappy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -596,6 +607,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EBB81AAB239D1DBC002C0663 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.11.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EBB81AAC239D1DBC002C0663 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EBB81AAB239D1DBC002C0663 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EB7F508B237DF0E000D71C72 /* Project object */;
 }
