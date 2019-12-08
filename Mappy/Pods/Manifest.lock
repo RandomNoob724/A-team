@@ -285,7 +285,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Firestore
   - FirebaseFirestoreSwift
-  - Kingfisher (~> 5.0)
+  - Kingfisher
 
 SPEC REPOS:
   trunk:
@@ -336,6 +336,6 @@ SPEC CHECKSUMS:
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
 
-PODFILE CHECKSUM: a8c9224f3fd81d13db5e8b81991939a12359f4a8
+PODFILE CHECKSUM: 3a3647df68db1efaedcdc2655f3c6304fd787f5a
 
 COCOAPODS: 1.8.4
