@@ -20,8 +20,7 @@ class EventTableViewController: UITableViewController, CLLocationManagerDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if (CLLocationManager.locationServicesEnabled())
-        {
+        if (CLLocationManager.locationServicesEnabled()){
             locationManager = CLLocationManager()
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -30,53 +29,43 @@ class EventTableViewController: UITableViewController, CLLocationManagerDelegate
         }
         eventTableView.reloadData()
     }
-    //Segue to Create new Event
-    @IBAction func showCreateNewEventController(_ sender: Any)
-    {
+    //MARK: SEGUE TO CREATE NEW EVENT
+    @IBAction func showCreateNewEventController(_ sender: Any){
         self.performSegue(withIdentifier: "createNewEventSegue", sender: self)
     }
     
-    //Finds users location
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
-    {
+    //MARK: FINDS USERS LOCAITON
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
 
         let location = locations.last! as CLLocation
 
         newCoordinates = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-
     }
 
-    
-    //Segue to detailed event controller
+    //MARK: SEGUE TO DETAILED EVENT CONTROLLER
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.performSegue(withIdentifier: "segueToDetailedEvent", sender: EventHandler.instance.allEvents[indexPath.row])
     }
     
-    //Passes necessary data destination
+    //MARK: PASSES DATA
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "createNewEventSegue"
-        {
+        if segue.identifier == "createNewEventSegue"{
             let destination = segue.destination as? CreateNewEventViewController
             destination?.eventCoordinates = newCoordinates
-        }
-        else if segue.identifier == "segueToDetailedEvent"
-        {
+        }else if segue.identifier == "segueToDetailedEvent"{
             let destination = segue.destination as? DetailedEventViewController
             destination?.selectedEvent = sender as? Event
         }
     }
-
-    //Counts amount of cells in tableview
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
+    
+    //MARK: NUMBER OF CELLS
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return EventHandler.instance.allEvents.count
     }
     
-    //Sets the cells up with title, date and time
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-    {
-        if let cell = eventTableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as? EventTableViewCell
-        {
+    //MARK: SETS UP THE CELLS
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        if let cell = eventTableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as? EventTableViewCell{
             let event = EventHandler.instance.allEvents[indexPath.row]
             cell.titleForEvent.text = event.title
             cell.dateForEvent.text = event.date
@@ -87,15 +76,12 @@ class EventTableViewController: UITableViewController, CLLocationManagerDelegate
         return UITableViewCell()
     }
 
-    //Refresh tableview
-    @IBAction func refreshTableViewController(_ sender: UIRefreshControl)
-    {
+    //MARK: REFRESH TABLEVIEW
+    @IBAction func refreshTableViewController(_ sender: UIRefreshControl){
         DataHandler.instance.readEvents(completion: {updatedEvents in
             EventHandler.instance.allEvents = updatedEvents
             sender.endRefreshing()
         })
         tableView.reloadData()
     }
-    
-
 }

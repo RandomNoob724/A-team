@@ -16,15 +16,10 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var PasswordTextField: UITextField!
     @IBOutlet weak var ErrorLabel: UILabel!
     
-    
-    @IBAction func GoBackHome(_ sender: Any) {
-        
-        self.dismiss(animated: true, completion: nil)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Create toolbar for keyboard
         let toolBar = UIToolbar()
         toolBar.barStyle = .default
         toolBar.isTranslucent = true
@@ -36,18 +31,20 @@ class LogInViewController: UIViewController {
         
         self.EmailTextField.inputAccessoryView = toolBar
         self.PasswordTextField.inputAccessoryView = toolBar
-
-        // Do any additional setup after loading the view.
     }
     
+    //MARK: PRESSED BACK BUTTON
+    @IBAction func GoBackHome(_ sender: Any) {
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    //MARK: PRESSED LOGIN BUTTON
     @IBAction func LoginButtonPressed(_ sender: UIButton) {
-        //AVAILABLE ACCOUNTS
-        //email: mrgabbeshi@gmail.com   pw: hej123
-        //email: axeldalbard@hotmail.com   pw:hello123
         UserHandler.instance.login(withEmail: EmailTextField.text!, password: PasswordTextField.text!, ((Error?)->(Void))?{error in
             if(error == nil){
                 self.performSegue(withIdentifier: "loginToMap", sender: self)
-            } else{
+            } else {
                 let errorCode = (error! as NSError).code
                 
                 switch errorCode {
@@ -65,24 +62,16 @@ class LogInViewController: UIViewController {
         })
     }
     
+    //MARK: KEYBOARD DISAPPEAR
+    //Press somewhere on the View to make the keyboard disappear.
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         view.endEditing(true)
         super.touchesBegan(touches, with: event)
     }
 
-    @objc func onClickDoneButton()
-    {
+    //MARK: PRESSED DONE BUTTON
+    //Handles the toolbar button (Done) click so the keyboard is dismissed.
+    @objc func onClickDoneButton(){
         self.view.endEditing(true)
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -27,32 +27,34 @@ class HomeViewController: UIViewController {
         }
         animateHomePage()
     }
-    
+    //MARK: FETCH BACKGROUND IMAGE
     func fetchBackgroundImage() {
         RestHandler.fetchImage(completion: { (success) in
             if success, let url = DataHandler.instance.getImageUrl(){
                 DispatchQueue.main.async {
                     self.backgroundImageView.kf.setImage(with: url)
                 }
-            }
-            else {
+            } else {
                 print("Error!")
             }
         })
     }
-    
+    //MARK: ANIMATE HOMEPAGE
     func animateHomePage(){
+        //Set the components out of frame
         titleLabel.center.x = self.view.frame.width + 130
         loginButton.center.x = self.view.frame.width + 130
         signupButton.center.x = self.view.frame.width + 130
         
         UIView.animate(withDuration: 2, delay: 1.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 10, options: .curveLinear, animations: {
+            //Set the components back in frame with a bounce
             self.titleLabel.center.x = self.view.frame.width / 2
             self.loginButton.center.x = self.view.frame.width / 2
             self.signupButton.center.x = self.view.frame.width / 2
         }, completion: nil)
     }
     
+    //MARK: UNWIND TO HOME VIEW CONTROLLER
     @IBAction func unwindToHomeViewController(_ unwindSegue: UIStoryboardSegue) {
         let sourceViewController = unwindSegue.source
         // Use data from the view controller which initiated the unwind segue

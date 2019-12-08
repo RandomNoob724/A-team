@@ -8,8 +8,7 @@
 
 import UIKit
 
-class EventTableViewCell: UITableViewCell
-{
+class EventTableViewCell: UITableViewCell {
     @IBOutlet weak var titleForEvent: UILabel!
     @IBOutlet weak var dateForEvent: UILabel!
     @IBOutlet weak var timeForEvent: UILabel!
@@ -18,6 +17,7 @@ class EventTableViewCell: UITableViewCell
         super.awakeFromNib()
     }
     
+    //MARK: SET SELECTED
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }

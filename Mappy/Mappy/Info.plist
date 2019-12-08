@@ -25,7 +25,7 @@
 	<key>MKDirectionsApplicationSupportedModes</key>
 	<array/>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Hej</string>
+	<string>Your current location will be displayed on the map and used for directions.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

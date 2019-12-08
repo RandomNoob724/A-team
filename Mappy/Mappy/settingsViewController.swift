@@ -13,11 +13,9 @@ class settingsViewController: UIViewController {
     @IBOutlet weak var errorLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
-    
+    //MARK: PRESSED LOG IN BUTTON
     @IBAction func pressedLogOutButton(_ sender: UIButton) {
         if UserHandler.instance.signOut(){
             
@@ -25,6 +23,8 @@ class settingsViewController: UIViewController {
             errorLabel.text = "Something went wrong"
         }
     }
+    
+    //MARK: PRESSED RESET PASSWORD BUTTON
     @IBAction func pressedResetPasswordButton(_ sender: UIButton) {
         UserHandler.instance.sendPasswordReset(withEmail: (UserHandler.instance.user?.email)!) { (error) in
             if error != nil{
@@ -36,15 +36,4 @@ class settingsViewController: UIViewController {
             }
         }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

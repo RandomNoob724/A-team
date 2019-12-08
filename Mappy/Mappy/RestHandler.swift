@@ -11,6 +11,7 @@ import UIKit
 
 class RestHandler {
     
+    //MARK: FETCH IMAGE
     static func fetchImage(completion: ((Bool) -> Void)?) {
         // This is the API: https://picsum.photos/id/0/info
         
@@ -38,7 +39,6 @@ class RestHandler {
             // But make sure that the callback is only called once otherwise the app will crash
             completion?(false)
         }
-        
         task.resume()
     }
 }

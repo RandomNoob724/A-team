@@ -19,17 +19,6 @@ class DetailedEventViewController: UIViewController {
     
     var selectedEvent: Event?
     
-    @IBAction func getThereClicked(_ sender: Any) {
-        //When clicked you want to segue over to the detailed Event view such that we can display the detailed information abou the event
-        let location = selectedEvent
-        let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeWalking]
-        location?.mapItem().openInMaps(launchOptions: launchOptions)
-    }
-    
-    @IBAction func closeButton(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         detailedViewHeader.text = selectedEvent?.title
@@ -38,5 +27,17 @@ class DetailedEventViewController: UIViewController {
         detailedViewTime.text = selectedEvent?.time
         detailedViewOwner.text = selectedEvent?.owner
     }
-
+    
+    //MARK: PRESSED GET THERE BUTTON
+    @IBAction func getThereClicked(_ sender: Any) {
+        //When clicked you want to segue over to the detailed Event view such that we can display the detailed information abou the event
+        let location = selectedEvent
+        let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeWalking]
+        location?.mapItem().openInMaps(launchOptions: launchOptions)
+    }
+    
+    //MARK: PRESSED CLOSE BUTTON
+    @IBAction func closeButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }

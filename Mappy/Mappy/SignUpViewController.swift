@@ -17,10 +17,6 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var errorLabel: UILabel!
     
-    @IBAction func GoBackHome(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -39,10 +35,13 @@ class SignUpViewController: UIViewController {
         self.lastNameTextField.inputAccessoryView = toolBar
         self.emailTextField.inputAccessoryView = toolBar
         self.passwordTextField.inputAccessoryView = toolBar
-        
-        // Do any additional setup after loading the view.
+    }
+    //MARK: PRESSED BACK BUTTON
+    @IBAction func GoBackHome(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
+    //MARK: PRESSED SIGN UP BUTTON
     @IBAction func signupButtonPressed(_ sender: UIButton) {
         
         UserHandler.instance.createUser(email: emailTextField.text!, password: passwordTextField.text!, firstName: firstNameTextField.text!, lastName: lastNameTextField.text!, ((Error?)->(Void))?{error in
@@ -68,23 +67,25 @@ class SignUpViewController: UIViewController {
                     self.errorLabel.text = "Something went wrong"
                     print(errorCode)
                 }
-                
             }
-            })
+        })
     }
     
+    //MARK: KEYBOARD DISAPPEAR
     //Press somewhere on the View to make the keyboard disappear.
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         view.endEditing(true)
         super.touchesBegan(touches, with: event)
     }
     
-    //Handles the toolbar button (Done) click so the UIDatePicker is dismissed.
+    //MARK: PRESSED DONE BUTTON
+    //Handles the toolbar button (Done) click so the keyboard is dismissed.
     @objc func onClickDoneButton()
     {
         self.view.endEditing(true)
     }
     
+    //MARK: SHOW KEYBOARD
     @objc func keyboardWillShow(notification: Notification){
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if self.passwordTextField.isFirstResponder {
@@ -93,21 +94,10 @@ class SignUpViewController: UIViewController {
         }
     }
     
+    //MARK: HIDE KEYBOARD
     @objc func keyboardWillHide(notification: Notification){
         if self.view.frame.origin.y != 0 {
             self.view.frame.origin.y = 0
         }
     }
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -20,6 +20,7 @@ class DataHandler{
     
     private var homepageBackgroundImage: BackgroundImage?
     
+    //MARK: SET SCREEN SIZE
     func setScreenWidth(width: Int){
         self.screenWidth = width
     }
@@ -28,12 +29,12 @@ class DataHandler{
         self.screenHeigth = heigth
     }
     
+    //MARK: SET BACKGROUND IMAGE
     func setBackgroundImage(backgroundImage: BackgroundImage){
         homepageBackgroundImage = backgroundImage
         homepageBackgroundImage!.download_url = "https://picsum.photos/id/\(homepageBackgroundImage!.id)/\(screenWidth)/\(screenHeigth)"
-        print(homepageBackgroundImage?.download_url)
     }
-    
+    //MARK: GET IMAGE
     func getImageUrl() -> URL?{
         if let url = homepageBackgroundImage?.download_url {
             return URL(string: url)

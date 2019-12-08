@@ -12,39 +12,6 @@ import CoreLocation
 
 class MapViewController: UIViewController {
     
-    //MARK: - When user holds the screen annotation is added
-    //When the user holds down the touch for a longer time they will be prompted to a modal view where they can create new events through a form
-    @IBAction func longTouchHappened(_ sender: UILongPressGestureRecognizer) {
-        if sender.state == .began {
-            let position = sender.location(in: self.mapView)
-            let newCoordinate = self.mapView.convert(position, toCoordinateFrom: self.mapView)
-            performSegue(withIdentifier: "CreateNewEvent", sender: newCoordinate)
-        }
-    }
-    
-    @IBAction func fetchEventButton(_ sender: Any) {
-        DataHandler.instance.readEvents(completion: { loadedEvents in
-            self.mapView.removeAnnotations(EventHandler.instance.allEvents)
-            EventHandler.instance.allEvents = loadedEvents
-            self.mapView.addAnnotations(EventHandler.instance.allEvents)
-        })
-    }
-    
-    //MARK: - Center button clicked
-    @IBAction func centerOnUserLocation(_ sender: Any) {
-        let userPosition = mapView.userLocation.coordinate
-        centerMapOnLocation(location: CLLocation(latitude: userPosition.latitude, longitude: userPosition.longitude))
-    }
-    
-    @IBOutlet weak var mapView: MKMapView!
-    
-    let locationManager = CLLocationManager()
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        mapView.addAnnotations(EventHandler.instance.allEvents)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         //checks location services
@@ -66,6 +33,41 @@ class MapViewController: UIViewController {
         })
     }
     
+    //MARK: LONG TUOCH HAPPENED
+    //When the user holds down the touch for a longer time they will be prompted to a modal view where they can create new events through a form
+    @IBAction func longTouchHappened(_ sender: UILongPressGestureRecognizer) {
+        if sender.state == .began {
+            let position = sender.location(in: self.mapView)
+            let newCoordinate = self.mapView.convert(position, toCoordinateFrom: self.mapView)
+            performSegue(withIdentifier: "CreateNewEvent", sender: newCoordinate)
+        }
+    }
+    
+    //MARK: PRESSED FETCH BUTTON
+    @IBAction func fetchEventButton(_ sender: Any) {
+        DataHandler.instance.readEvents(completion: { loadedEvents in
+            self.mapView.removeAnnotations(EventHandler.instance.allEvents)
+            EventHandler.instance.allEvents = loadedEvents
+            self.mapView.addAnnotations(EventHandler.instance.allEvents)
+        })
+    }
+    
+    //MARK: CENTER BUTTON PRESSED
+    @IBAction func centerOnUserLocation(_ sender: Any) {
+        let userPosition = mapView.userLocation.coordinate
+        centerMapOnLocation(location: CLLocation(latitude: userPosition.latitude, longitude: userPosition.longitude))
+    }
+    
+    @IBOutlet weak var mapView: MKMapView!
+    
+    let locationManager = CLLocationManager()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        mapView.addAnnotations(EventHandler.instance.allEvents)
+    }
+    
+    //MARK:CHECK LOCATION SERVICES
     //Method for calling the checkLocationAuthorization method
     func checkLocationServices(){
         if CLLocationManager.locationServicesEnabled(){
@@ -75,6 +77,7 @@ class MapViewController: UIViewController {
         }
     }
     
+    //MARK: CHECK LOCATION AUTH
     //Check if the user have authenticated the application to use the current location
     func checkLocationAuthorization(){
         switch CLLocationManager.authorizationStatus() {
@@ -94,7 +97,7 @@ class MapViewController: UIViewController {
         }
     }
     
-    //MARK: - Center the map on a specific position
+    //MARK: CENTER MAP ON LOCATION
     //Called when you want to center the mapView on a speicfic location
     func centerMapOnLocation(location: CLLocation){
         let regionRadius: CLLocationDistance = 1000
@@ -114,9 +117,9 @@ class MapViewController: UIViewController {
     }
 }
 
-//Creates new mapViewDelegate
 extension MapViewController: MKMapViewDelegate {
     
+    //MARK: CREATE ANNOTATION
     //Used to make custom mapView annotations
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView?{
         guard let annotation = annotation as? Event else {return nil}
@@ -137,6 +140,7 @@ extension MapViewController: MKMapViewDelegate {
         return view
     }
     
+    //MARK: PRESSED INFO BUTTON
     //When information is clicked on the annotation the user is taken to the apple maps app where you can find more specific information how to get to a specific point
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView,
     calloutAccessoryControlTapped control: UIControl){

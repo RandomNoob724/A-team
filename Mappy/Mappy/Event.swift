@@ -38,10 +38,12 @@ class Event: NSObject, MKAnnotation{
         super.init()
     }
     
+    //MARK: SET TITLE
     func setTitle(newTitle: String){
         self.title = newTitle
     }
     
+    //MARK: SET LOCATION
     func setLocation(coordinates: CLLocationCoordinate2D){
         self.locationManager.getPlace(for: CLLocation(latitude: coordinates.latitude, longitude: coordinates.longitude)) { placemark in
             guard let placemark = placemark else { return }
@@ -58,6 +60,7 @@ class Event: NSObject, MKAnnotation{
         }
     }
     
+    //MARK: UPDATE COORDINATES
     func updateCoordinates(newCoordinates: CLLocationCoordinate2D){
         self.coordinate = newCoordinates
     }
@@ -75,7 +78,7 @@ class Event: NSObject, MKAnnotation{
     }
 }
 
-//MARK: - Get placemark
+//MARK: Get placemark
 extension CLLocationManager {
     func getPlace(for location:CLLocation, completion: @escaping (CLPlacemark?) -> Void){
         let geocoder = CLGeocoder()

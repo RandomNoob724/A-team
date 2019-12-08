@@ -13,12 +13,12 @@ class EventHandler {
     static let instance = EventHandler()
     
     var allEvents: [Event] = []
-    
+    //MARK: INSERT NEW EVENT
     func insertNewEvent(newEvent: Event){
         newEvent.setLocation(coordinates: newEvent.coordinate)
         allEvents.append(newEvent)
     }
-    
+    //MARK: UPDATE MAP
     func updateMap(mapView: MKMapView){
         mapView.addAnnotation(allEvents[allEvents.endIndex-1])
     }
